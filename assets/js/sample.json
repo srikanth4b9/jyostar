@@ -1,0 +1,61 @@
+{
+  "info": [
+    {
+      "type": "Short Film",
+      "title": "King Kababa and the Knight",
+      "body": "Third year film\r\nOriginal score by Max Rubell\r\nmaxrubellmusic.com\r\nKing Kababa voiced by Kyler Spears\r\nKnight voiced by Jacob Streilein",
+      "cast_crew": "Jason Reicher",
+      "poster": "poster.png",
+      "video": "<iframe src=\"https:\/\/player.vimeo.com\/video\/65023657\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen><\/iframe> <p><a href=\"https:\/\/vimeo.com\/65023657\">King Kababa and the Knight<\/a> from <a href=\"https:\/\/vimeo.com\/jasonreicher\">Jason Reicher<\/a> on <a href=\"https:\/\/vimeo.com\">Vimeo<\/a>.<\/p>",
+      "language": "",
+      "duration": "3:58 min",
+      "gener": "Comedy",
+      "rated": "5",
+      "featured": "0",
+      "popular": "0",
+      "status": "Released",
+      "releaseon": "2015-09-01",
+      "createdon": "2015-10-10 00:00:00",
+      "modifiedon": "2015-10-10 00:00:00",
+      "published": "1"
+    },
+    {
+      "type": "Documentry",
+      "title": "Portrait of an Artist | Felipe Pantone2",
+      "body": "A series of facts of varying importance on the topic of Felipe Pantone.\r\nFelipe Pantone is a contemporary slash kinetic slash graffiti artist living in Valencia, Spain. Selina Miles is a video director from Brisbane, Australia. Together, they celebrate their love of the internet and facts in this short film.\r\nDirected and Edited by Selina Miles.",
+      "cast_crew": "Selina Miles",
+      "poster": "poster.png",
+      "video": "<iframe src=\"https:\/\/player.vimeo.com\/video\/141651297?portrait=0\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen><\/iframe> <p><a href=\"https:\/\/vimeo.com\/141651297\">Portrait of an Artist | Felipe Pantone<\/a> from <a href=\"https:\/\/vimeo.com\/selinamiles\">Selina Miles<\/a> on <a href=\"https:\/\/vimeo.com\">Vimeo<\/a>.<\/p>",
+      "language": "",
+      "duration": "5:03 min",
+      "gener": "Animated",
+      "rated": "5",
+      "featured": "0",
+      "popular": "0",
+      "status": "Released",
+      "releaseon": "2015-09-01",
+      "createdon": "2015-10-10 00:00:00",
+      "modifiedon": "2015-10-10 00:00:00",
+      "published": "1"
+    },
+    {
+      "type": "Art & Design2",
+      "title": "Portrait of an Artist | Felipe Pantone2",
+      "body": "A series of facts of varying importance on the topic of Felipe Pantone.\r\nFelipe Pantone is a contemporary slash kinetic slash graffiti artist living in Valencia, Spain. Selina Miles is a video director from Brisbane, Australia. Together, they celebrate their love of the internet and facts in this short film.\r\nDirected and Edited by Selina Miles.",
+      "cast_crew": "Selina Miles",
+      "poster": "poster.png",
+      "video": "<iframe src=\"https:\/\/player.vimeo.com\/video\/141651297?portrait=0\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen><\/iframe> <p><a href=\"https:\/\/vimeo.com\/141651297\">Portrait of an Artist | Felipe Pantone<\/a> from <a href=\"https:\/\/vimeo.com\/selinamiles\">Selina Miles<\/a> on <a href=\"https:\/\/vimeo.com\">Vimeo<\/a>.<\/p>",
+      "language": "English",
+      "duration": "5:03 min",
+      "gener": "Art & Design",
+      "rated": "5",
+      "featured": "0",
+      "popular": "1",
+      "status": "Released",
+      "releaseon": "2015-09-01",
+      "createdon": "2015-10-10 00:00:00",
+      "modifiedon": "2015-10-10 00:00:00",
+      "published": "true"
+    }
+  ]
+}
