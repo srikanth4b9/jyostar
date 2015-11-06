@@ -103,6 +103,12 @@ font-size:12px;
 /*-------------------------
 		film List View
 -------------------------*/
+ 
+ .optionLabel {
+	 margin-top: 10px !important;
+	 margin-bottom: -6px !important;
+	 text-align: center;
+ }
 .film-list.ui-listview .ui-btn{
 	padding: 0 1em;
 }

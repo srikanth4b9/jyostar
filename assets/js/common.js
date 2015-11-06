@@ -1,4 +1,43 @@
 $(document).ready(function() {
+	
+	function appendSelectOptions(response){
+		var uniqueMovieTypes = _.uniq(_.pluck(_.flatten(response), "type"));
+		var uniqueMovieGener = _.uniq(_.pluck(_.flatten(response), "gener"));
+		var uniqueMovieLanguages = _.uniq(_.pluck(_.flatten(response), "language"));
+		
+		uniqueMovieTypes.unshift("All");
+		uniqueMovieGener.unshift("All");
+		uniqueMovieLanguages.unshift("All");
+		
+		var typeOptionsTemplate = "";
+		var languageOptionsTemplate = "";
+		var generOptionsTemplate = "";
+		_.each(uniqueMovieTypes, function(item){
+			typeOptionsTemplate += "<option value='"+item+"'>"+item+"</option>";
+		});
+		_.each(uniqueMovieLanguages, function(item){
+			languageOptionsTemplate += "<option value='"+item+"'>"+item+"</option>";
+		});
+		_.each(uniqueMovieGener, function(item){
+			generOptionsTemplate += "<option value='"+item+"'>"+item+"</option>";
+		});
+		
+		$("#mtype").append(typeOptionsTemplate);//.find("option:eq(0)").attr("selected", "selected");
+		$("#language").append(languageOptionsTemplate);
+		$("#gener").append(generOptionsTemplate);
+		
+		var myselect = $("select#mtype")
+		myselect[0].selectedIndex = 0;
+		myselect.selectmenu("refresh");
+		
+		var myselect = $("select#language")
+		myselect[0].selectedIndex = 0;
+		myselect.selectmenu("refresh");
+		
+		var myselect = $("select#gener")
+		myselect[0].selectedIndex = 0;
+		myselect.selectmenu("refresh");
+	}
 
     setTimeout(function(){
 		$('.slider').slick({
@@ -14,9 +53,8 @@ $(document).ready(function() {
 	
     }, 300)
 	getcurrentLocatation();
-
-	function populateMoviesData(response){
-		moviesArray = response.info;
+	appendSelectOptions(response);
+	function renderGridData(arrObj){
 		var html = "";
 		$.each(moviesArray, function(i, item) {
 			html += '<li id="updateVersionItem-' + (i) + '" class = "listitem" onclick="onClickMovie(' + i + ')">\
@@ -27,24 +65,51 @@ $(document).ready(function() {
 												</div><i class="fa fa-chevron-right"></i></a></li>'
 
 		});
-		$('.film-list').empty().append(html).listview('refresh');		   
-		
+		$('.film-list').empty().append(html).listview('refresh');	
 	}
 	
 	function populateGridView(response){
-		moviesArray = response.info;
-		var html = "";
-		$.each(moviesArray, function(i, item) {
-			html += '<li id="updateVersionItem-' + (i) + '" class = "ui-li-has-thumb" onclick="onClickMovie(' + i + ')"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img src="http://jyostar.com'+item.mobilethumb+'" class="ui-li-thumb"><p>' + item.title + '</p></a></li>';
 
+		var html = "";
+		$.each(response, function(i, item) {
+			html += '<li id="updateVersionItem-' + (i) + '" class = "ui-li-has-thumb" onclick="onClickMovie(' + i + ')"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img src="http://jyostar.com'+item.mobilethumb+'" class="ui-li-thumb"><p>' + item.title + '</p></a></li>';
 		});
 
 		$('.film-list').empty();
 		$("#gridView").empty().append(html).listview('refresh');
 	}
 	
+	function filterMovies(){
+		var selectedMovieType = $("#mtype option:selected").val();
+		var selectedLanguage = $("#language option:selected").val();
+		var selectedGener = $("#gener option:selected").val();
+		
+		var filteredMovietype = (selectedMovieType == "All" ? moviesArray : _.filter(moviesArray, function(item){ return item.type == selectedMovieType;}));
+		var filteredMovieTypeAndLanguage = (selectedLanguage == "All" ? filteredMovietype : _.filter(filteredMovietype, function(item){ return item.language == selectedLanguage;}));
+		var filteredMovieWithAll = (selectedGener == "All" ? filteredMovieTypeAndLanguage : _.filter(filteredMovieTypeAndLanguage, function(item){ return item.gener == selectedGener;}));
+		return filteredMovieWithAll;
+	}
+	
+	$(document).on("change", "#mtype", function(){
+		var moviesArr = filterMovies();
+		populateGridView(moviesArr);
+	});
+	
+	$(document).on("change", "#language", function(){
+		var moviesArr = filterMovies();
+		populateGridView(moviesArr);
+	});
+	
+	$(document).on("change", "#gener", function(){
+		var moviesArr = filterMovies();
+		populateGridView(moviesArr);
+	});
+	
 	//Common function to call "GET" service with url, input data and successcallback
 	function makeAJAXCall(url, inputData, successCallBack){
+		moviesArray = response;
+		successCallBack.call(successCallBack, response);
+		return;
 		$.ajax({
 				type: "GET",
 				url: url,
@@ -79,18 +144,18 @@ $(document).ready(function() {
 	}
 	
 	function getcurrentLocatation() {
-		
-		$.getJSON("http://www.telize.com/geoip?callback=?",
-				function(json) {
-					var country = json.country_code;
-					var currentPage = getcurrentSelectedPageFromSession();	
-					if (currentPage === "Movies") {
-						getMoviesDataFromServer(country);
-					}else {
-						getTvDataFromServer (country);
-					}
-				}
-			);
+		getMoviesDataFromServer("IN");
+		// $.getJSON("http://www.telize.com/geoip?callback=?",
+// 				function(json) {
+// 					var country = json.country_code;
+// 					var currentPage = getcurrentSelectedPageFromSession();
+// 					if (currentPage === "Movies") {
+// 						getMoviesDataFromServer(country);
+// 					}else {
+// 						getTvDataFromServer (country);
+// 					}
+// 				}
+// 			);
 	}
 	
 	// Get Movies data from Jyostar server
