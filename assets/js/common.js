@@ -22,9 +22,9 @@ $(document).ready(function() {
 			generOptionsTemplate += "<option value='"+item+"'>"+item+"</option>";
 		});
 		
-		$("#mtype").append(typeOptionsTemplate);//.find("option:eq(0)").attr("selected", "selected");
-		$("#language").append(languageOptionsTemplate);
-		$("#gener").append(generOptionsTemplate);
+		$("#mtype").empty().append(typeOptionsTemplate);//.find("option:eq(0)").attr("selected", "selected");
+		$("#language").empty().append(languageOptionsTemplate);
+		$("#gener").empty().append(generOptionsTemplate);
 		
 		var myselect = $("select#mtype")
 		myselect[0].selectedIndex = 0;
@@ -53,7 +53,7 @@ $(document).ready(function() {
 	
     }, 300)
 	getcurrentLocatation();
-	appendSelectOptions(response);
+
 	function renderGridData(arrObj){
 		var html = "";
 		$.each(moviesArray, function(i, item) {
@@ -68,7 +68,11 @@ $(document).ready(function() {
 		$('.film-list').empty().append(html).listview('refresh');	
 	}
 	
-	function populateGridView(response){
+	function populateGridView(response, fromService){
+		if(fromService == "FROM_SERVICE"){
+			appendSelectOptions(response);
+			moviesArray = response;
+		}
 
 		var html = "";
 		$.each(response, function(i, item) {
@@ -107,9 +111,6 @@ $(document).ready(function() {
 	
 	//Common function to call "GET" service with url, input data and successcallback
 	function makeAJAXCall(url, inputData, successCallBack){
-		moviesArray = response;
-		successCallBack.call(successCallBack, response);
-		return;
 		$.ajax({
 				type: "GET",
 				url: url,
@@ -117,7 +118,7 @@ $(document).ready(function() {
 				dataType: "json",
 				crossDomain: true,
 				success: function(response) {
-					successCallBack.call(successCallBack, response);
+					successCallBack.call(successCallBack, response.info, "FROM_SERVICE");
 				},
 				error: function(e) {
 					alert("error" + e);
@@ -144,18 +145,18 @@ $(document).ready(function() {
 	}
 	
 	function getcurrentLocatation() {
-		getMoviesDataFromServer("IN");
-		// $.getJSON("http://www.telize.com/geoip?callback=?",
-// 				function(json) {
-// 					var country = json.country_code;
-// 					var currentPage = getcurrentSelectedPageFromSession();
-// 					if (currentPage === "Movies") {
-// 						getMoviesDataFromServer(country);
-// 					}else {
-// 						getTvDataFromServer (country);
-// 					}
-// 				}
-// 			);
+
+		$.getJSON("http://www.telize.com/geoip?callback=?",
+				function(json) {
+					var country = json.country_code;
+					var currentPage = getcurrentSelectedPageFromSession();
+					if (currentPage === "Movies") {
+						getMoviesDataFromServer(country);
+					}else {
+						getTvDataFromServer (country);
+					}
+				}
+			);
 	}
 	
 	// Get Movies data from Jyostar server
