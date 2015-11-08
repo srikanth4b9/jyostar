@@ -37,6 +37,8 @@ $(document).ready(function() {
 		var myselect = $("select#gener")
 		myselect[0].selectedIndex = 0;
 		myselect.selectmenu("refresh");
+		
+		$("#dropDownFilterList").show();
 	}
 
     $('.slider').slick({
@@ -50,34 +52,44 @@ $(document).ready(function() {
         cssEase: 'linear'
 	});
 	
+	$(document).on("click", "#moviesList", function(){
+		getcurrentLocatation();
+	});
+
+	$(document).on("click", "#tvSerials", function(){
+		getcurrentLocatation();
+	});
+
 	getcurrentLocatation();
-
-	function renderGridData(arrObj){
-		var html = "";
-		$.each(moviesArray, function(i, item) {
-			html += '<li id="updateVersionItem-' + (i) + '" class = "listitem" onclick="onClickMovie(' + i + ')">\
-												<a href="#"><img src="http://jyostar.com/star/videoadmin/kcfinder/upload/files/aagam-poster.jpg"><h2>' + item.title + '</h2>\
-												<p class="dscrp">' + item.body + '</p><div class="other-dtls"><p><span>Duration: </span>\
-												<span>' + item.duration + '</span></p><p><span>Language: </span><span>' + item.language + '</span>\
-												</p><p><span>Gener: </span><span>' + item.gener + '</span></p>\
-												</div><i class="fa fa-chevron-right"></i></a></li>'
-
-		});
-		$('.film-list').empty().append(html).listview('refresh');	
-	}
-	
+	$("#dropDownFilterList").hide();
 	function populateGridView(response, fromService){
+		var currentPage = getcurrentSelectedPageFromSession();
 		if(fromService == "FROM_SERVICE"){
 			appendSelectOptions(response);
+			
+			$(".ui-navbar ul li a").removeClass("ui-btn-active");
+			
+			if(currentPage == "Serials"){
+				$(".typeLabel").text("TV Show Type");
+				$("#tvSerials a").addClass("ui-btn-active");
+			} else {
+				$(".typeLabel").text("Movie Type");
+				$("#moviesList a").addClass("ui-btn-active");
+			}
 			moviesArray = response;
 		}
 
 		var html = "";
-		$.each(response, function(i, item) {
-			html += '<li id="updateVersionItem-' + (i) + '" class = "ui-li-has-thumb" onclick="onClickMovie(' + i + ')"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img src="http://jyostar.com'+item.mobilethumb+'" class="ui-li-thumb"><p>' + item.title + '</p></a></li>';
-		});
+		if(currentPage == "Serials"){
+			$.each(response, function(i, item) {
+				html += '<li id="updateVersionItem-' + (i) + '" class = "ui-li-has-thumb" onclick="onClickTVProgram(\'' + item.sid + '\')"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img src="http://jyostar.com'+item.mobilethumb+'" class="ui-li-thumb"><p>' + item.title + '</p></a></li>';
+			});
+		} else {
+			$.each(response, function(i, item) {
+				html += '<li id="updateVersionItem-' + (i) + '" class = "ui-li-has-thumb" onclick="onClickMovie(\'' + item.mid + '\')"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img src="http://jyostar.com'+item.mobilethumb+'" class="ui-li-thumb"><p>' + item.title + '</p></a></li>';
+			});	
+		}
 
-		$('.film-list').empty();
 		$("#gridView").empty().append(html).listview('refresh');
 	}
 	
@@ -116,10 +128,12 @@ $(document).ready(function() {
 				dataType: "json",
 				crossDomain: true,
 				success: function(response) {
+					$.mobile.loading( 'hide');
 					successCallBack.call(successCallBack, response.info, "FROM_SERVICE");
 				},
 				error: function(e) {
-					alert("error" + e);
+					$.mobile.loading( 'hide');
+					alert("error" + e.message);
 					console.log(e.message);
 				}
     	});
@@ -160,7 +174,14 @@ $(document).ready(function() {
 	// Get Movies data from Jyostar server
 
 	function getMoviesDataFromServer(country) {
-		var moviesURL = "http://jyostar.com/star/videoadmin/Apprest.php";
+	    $.mobile.loading( 'show', {
+		      text: "Loading Movies...",
+		      textVisible: true,
+		      theme: "z",
+		      textonly: false,
+		      html: ""
+	    });
+		var moviesURL = "http://jyostar.com/star/movieslist.php";
 		var inputData = { "cuid": country };
 		makeAJAXCall(moviesURL, inputData, populateGridView);
 		
@@ -169,7 +190,15 @@ $(document).ready(function() {
 	//Get TV Shows data from Jyostar server
 
 	function getTvDataFromServer(country) {
-		var serialsURL = "http://jyostar.com/star/videoadmin/Apprestserial.php";
+	    $.mobile.loading( 'show', {
+		      text: "Loading TV Details...",
+		      textVisible: true,
+		      theme: "z",
+		      textonly: false,
+		      html: ""
+	    });
+		var serialsURL = "http://jyostar.com/star/showlist.php";
+		// var serialsURL = "http://jyostar.com/star/videoadmin/Apprestserial.php";
 		var inputData = { "cuid": country};
 		makeAJAXCall(serialsURL, inputData, populateGridView);
 	}
@@ -197,17 +226,36 @@ function getcurrentSelectedPageFromSession() {
 }
 
 
-function onClickMovie(id) {
-	renderDetailsPage(moviesArray[id]);
-	
+function onClickMovie(mid) {
+    $.mobile.loading( 'show', {
+	      text: "Loading Movie Details...",
+	      textVisible: true,
+	      theme: "z",
+	      textonly: false,
+	      html: ""
+      });
+	var movieDetailsURL = "http://jyostar.com/star/movieview.php";
+	var inputData = { "movie": mid};
+	makeAJAXCall(movieDetailsURL, inputData, renderDetailsPage);
 }
 
-function onClickSerial(id) {
-	renderDetailsPage(serialsArray[id]);
+function onClickTVProgram(sid) {
+    $.mobile.loading( 'show', {
+	      text: "Loading Serails Details...",
+	      textVisible: true,
+	      theme: "z",
+	      textonly: false,
+	      html: ""
+    });
+	var tvProgramDetailsURL = "http://jyostar.com/star/tvview.php"
+	var inputData = { "tv": sid};
+	makeAJAXCall(tvProgramDetailsURL, inputData, renderDetailsPage);
 }
 
-function renderDetailsPage(selectedMovieObject){
+function renderDetailsPage(responseObj){
 	
+	var selectedMovieObject = responseObj[0];
+
 	$("#film-index-page").hide();
 	$(".slider").hide();
 	$("#film-details-page").show();
@@ -218,8 +266,39 @@ function renderDetailsPage(selectedMovieObject){
 	$("#movieName").html(selectedMovieObject.title);
 	$("#cast").html(selectedMovieObject.cast_crew);
 	$("#filmDetails").html(selectedMovieObject.body);
+	if(selectedMovieObject.paidmovie && selectedMovieObject.paidmovie == "1"){
+		$(".paidmovie_1 a").attr("onclick", "window.open('"+selectedMovieObject.paidmovieurl+"', '_system')").show();
+		$(".promoContainer").show();
+		$(".promoContainer h3").text(selectedMovieObject.promocode).show();
+		$(".promoContainer p").text(selectedMovieObject.promotext).show();
+	} else {
+		$(".paidmovie_1 a").hide();
+		$(".promoContainer").hide();
+	}
 
 	var movieSRC = $(selectedMovieObject.video).attr("src");
 	iframeEle.attr("src", movieSRC);
+	
+	$("#img_poster").attr("src", "http://jyostar.com"+selectedMovieObject.webthumb).attr("width", "150").attr("height", "200");
+	
 }
 
+//Common function to call "GET" service with url, input data and successcallback
+function makeAJAXCall(url, inputData, successCallBack){
+	$.ajax({
+			type: "GET",
+			url: url,
+			data: inputData,
+			dataType: "json",
+			crossDomain: true,
+			success: function(response) {
+				$.mobile.loading( 'hide');
+				successCallBack.call(successCallBack, response.info, "FROM_SERVICE");
+			},
+			error: function(e) {
+				$.mobile.loading( 'hide');
+				alert("Error:" + e.message);
+				console.log(e.message);
+			}
+	});
+}

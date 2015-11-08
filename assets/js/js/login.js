@@ -1,5 +1,3 @@
-var BookIt = BookIt || {};
-
 // Begin boilerplate code generated with Cordova project.
 
 var app = {
@@ -41,6 +39,16 @@ $(document).on("pagebeforeshow","#login-page",function() {
 	
     app.loginController.init("#login-page");
 	app.loginController.resetLoginForm();
+	var userLoggedIn = app.loginController.isUserLoggedIn();
+	var userData = app.loginController.getUserDetails();
+	debugger;
+	if(userLoggedIn){
+		$("#txt-email-address").val(userData.userName);
+		$("#txt-password").val(userData.password);
+		
+		app.loginController.onLoginCommand();
+		return;
+	}	
     app.loginController.$btnSubmit.off("tap").on("tap", function () {
 		app.loginController.onLoginCommand();
    });

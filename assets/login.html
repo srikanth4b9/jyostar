@@ -10,6 +10,10 @@
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
 	<link rel="stylesheet" type="text/css" href="css/css/app.css" />
     <link rel="stylesheet" href="css/slick.css" />
+	<title>::JyoStar Login::</title>
+	<style>
+		
+	</style>
 </head>
 
 <body>
@@ -29,7 +33,7 @@
            <input type="password" placeholder="Password" name="txt-password" id="txt-password" value=""/>
 		   <div class="submitContainer">
            <a href="#dlg-invalid-credentials" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all submitButton">Submit</a>
-		   <p class = "forgotLink"><a href="#forget-password-page" >Forgot Password?</a></p>
+		   <p class = "forgotLink"><a href="#forget-password-page" data-transition="slide">Forgot Password?</a></p>
 	   </div>
 
 		   <div class="registerContainer">
@@ -115,7 +119,7 @@
 	               	 	</div>
             </div>
     </div>
-	
+	<div class="ui-loader-background"> </div>
     <script src="lib/jquery/2.1.1/jquery-2.1.1.min.js"></script>
     <script src="js/js/api-messages.js"></script>
     <script src="js/js/settings.js"></script>

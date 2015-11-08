@@ -3,11 +3,13 @@ $(document).ready(function(){
 	$("#moviesList").on("click", function(){
 		sessionStorage.setItem("currentPage","Movies");
 		showIndexPage();
+		$("#moviesList").trigger("click");
 	});
 	
 	$("#tvSerials").on("click", function(){
 		sessionStorage.setItem("currentPage","Serials");
 		showIndexPage();
+		$("#tvSerials").trigger("click")
 	});
 	
 	function showIndexPage(){

@@ -11,6 +11,18 @@ BookIt.LoginController = function () {
     this.$txtPassword = null;
     this.$txtPasswordConfirm = null;
 };
+BookIt.LoginController.prototype.getUserDetails = function(){
+
+	var currentUserDetails = sessionStorage.getItem("currentUser");
+	return JSON.parse(currentUserDetails);
+}
+
+BookIt.LoginController.prototype.isUserLoggedIn = function(){
+
+	var that = this;
+	var userObj = that.getUserDetails();
+	return userObj ? userObj.isUserLoggedIn : false;
+}
 
 BookIt.LoginController.prototype.init = function (page) {
 	
@@ -146,6 +158,12 @@ BookIt.LoginController.prototype.onLoginCommand = function () {
 		}else {
 			if (response.status == 1) {
 	            // $.mobile.changePage("index.html");
+				var currentUser = {
+					userName: emailAddress,
+					password: password,
+					isUserLoggedIn: true
+				}
+				sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
 				location.href = "index.html";
 			}else {
 	            me.$ctnErr.html("<p>"+ "Oops!  " +  response.msg +"</p>");

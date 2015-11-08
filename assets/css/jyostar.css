@@ -14,8 +14,7 @@ font-size:12px;
 	padding: 0.2em 0px;
 }
 .ui-header .ui-title img{
-	width:80%;
-	
+	width: 60%;
 }
 .ui-page-theme-a .ui-bar-inherit{
 	background-color: #FFF;
@@ -196,15 +195,18 @@ font-size:12px;
 .filmdetails-container{
 	background: #333333;
 	text-shadow: none;
-	 font-weight: normal;
-	    display: inline-block;
+	font-weight: normal;
+    display: inline-block;
 	width:100%;
 	padding-top: 0.5em;
+	margin-top: 5px;
 }
 .filmdetails-container img{
 	float: left;
 	margin-right: 15px;
-	    margin-left: 10px;
+	margin-left: 10px;
+	max-width: 100%;
+	height: auto;
 }
 .filmdetails-container  h2{
     background: #091223;

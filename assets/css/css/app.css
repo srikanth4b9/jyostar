@@ -3,7 +3,7 @@
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 }
-h1,h2,h3,h4,h5 {
+h1, h2, h3, h4, h5 {
     color:#0071bc;
 }
 
@@ -57,8 +57,7 @@ h3.mc-text-danger  {
 	padding: 0.1em 0;
 }
 .ui-header .ui-title img{
-	width:80%;
-
+	width: 60%;
 }
 .ui-page-theme-a .ui-bar-inherit{
 	background-color: #FFF;
