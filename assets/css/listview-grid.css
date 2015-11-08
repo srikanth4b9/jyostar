@@ -1,8 +1,9 @@
 /* A bit custom styling */
 .my-page .ui-listview li .ui-btn p {
 	color: white;
-	padding: 15px 0 0 10px;
-	font-size: 18px;
+	margin: auto;
+	padding: 5px 5px;
+	font-size: 13px;
 }
 .my-page .ui-listview li .ui-btn .ui-li-aside {
 	color: #eee;
@@ -14,10 +15,14 @@
 	}
 	.my-page .ui-listview li {
 		float: left;
-		width: 30.9333%; /* 33.3333% incl. 2 x 1.2% margin */
-		height: 14.5em; /* 232p */
-		margin: .5625em 1.2%;
+		width: 150px; /* 33.3333% incl. 2 x 1.2% margin */
+		height: 150px; /* 232p */
+		margin: 5px 10px;
 	}
+	.my-page .ui-listview li:first-child{
+		margin: 5px 10px;
+	}
+
 	.my-page .ui-listview li > .ui-btn {
 		-webkit-box-sizing: border-box; /* include padding and border in height so we can set it to 100% */
 		-moz-box-sizing: border-box;

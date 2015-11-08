@@ -261,8 +261,15 @@ iframe{
 	.ui-page-theme-a .ui-header .ui-navbar .ui-btn{
 		font-size: 0.62em;
 	}
-	
 }
+
+@media only screen and (min-width : 321px) {
+	.ui-header .ui-title{
+		margin: 0;
+		padding: 0.1em 0px;
+	}
+}
+
 @media only screen and (max-width:480px){
 	.filmdetails-container img{
 		width: 25%;	
@@ -273,4 +280,8 @@ iframe{
 	.ui-content{
 		overflow-y:hidden;
 	}
+}
+
+#cast p{
+	font-size: 14px;
 }

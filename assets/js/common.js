@@ -173,7 +173,7 @@ $(document).ready(function() {
 	function getTvDataFromServer(country) {
 		var serialsURL = "http://jyostar.com/star/videoadmin/Apprestserial.php";
 		var inputData = { "cuid": country};
-		makeAJAXCall(serialsURL, inputData, populateSerialsData);
+		makeAJAXCall(serialsURL, inputData, populateGridView);
 	}
 });
 
@@ -200,19 +200,28 @@ function getcurrentSelectedPageFromSession() {
 
 
 function onClickMovie(id) {
-	//console.log('Do something with ' + id);
-	//console.log(JSON.stringify(moviesArray[id]));
-	//sessionStorage.setItem("selectedMovie", JSON.stringify(moviesArray[id]));
-	savedatainsessionWithKey(JSON.stringify(moviesArray[id]),"selectedMovie");
-	window.location.href = "filmdetails.html";
+	renderDetailsPage(moviesArray[id]);
+	
 }
 
 function onClickSerial(id) {
-	//console.log('Do something with ' + id);
-	//console.log(JSON.stringify(serialsArray[id]));
-	//sessionStorage.setItem("selectedSerial", JSON.stringify(serialsArray[id]));
-	savedatainsessionWithKey(JSON.stringify(serialsArray[id]),"selectedMovie");
-	window.location.href = "filmdetails.html";
+	renderDetailsPage(serialsArray[id]);
 }
 
+function renderDetailsPage(selectedMovieObject){
+	
+	$("#film-index-page").hide();
+	$(".slider").hide();
+	$("#film-details-page").show();
+	
+    var iframeEle = $("iframe");
+    iframeEle.attr("width", $(document).width());
+   
+	$("#movieName").html(selectedMovieObject.title);
+	$("#cast").html(selectedMovieObject.cast_crew);
+	$("#filmDetails").html(selectedMovieObject.body);
+
+	var movieSRC = $(selectedMovieObject.video).attr("src");
+	iframeEle.attr("src", movieSRC);
+}
 
