@@ -5,96 +5,11 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
-
+    
     <link href="css/css/themes/2/bookit.min.css" rel="stylesheet" />
-    <link href="css/css/themes/2/jquery.mobile.icons.min.css" rel="stylesheet" />
-    <link href="lib/jqm/1.4.5/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/css/app.css" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+	<link rel="stylesheet" type="text/css" href="css/css/app.css" />
     <link rel="stylesheet" href="css/slick.css" />
-	<style>
-		/*-------------------------
-				Common Styles
-		-------------------------*/
-		.ui-header .ui-title{
-			margin: 0;
-			padding: 0.1em 0;
-		}
-		.ui-header .ui-title img{
-			width:80%;
-	
-		}
-		.ui-page-theme-a .ui-bar-inherit{
-			background-color: #FFF;
-		}
-		.login-page .ui-content{
-			padding: 1em 2em;
-		}
-		:-webkit-input-placeholder { 
-			color: #6A6A6A !important;
-			font-style: italic !important; 
-		}
-		::-moz-placeholder { 
-			color: #6A6A6A !important;
-			font-style: italic !important; 
-		} /* firefox 19+ */
-		:-ms-input-placeholder { 
-			color: #6A6A6A !important;
-			font-style: italic !important; 
-		} /* ie */
-		input:-moz-placeholder { 
-			color: #6A6A6A !important;
-			font-style: italic !important; 
-		}
-		#txt-email-address, #txt-password {
-			background-color: #FFF;
-			background-image: none;
-			border: 1px solid #CCC;
-			border-radius: 4px;
-			box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
-			transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-		}
-		.forgotLink a{
-			color: #38C;
-			font-weight: normal;
-			text-decoration: none;
-			margin-top: 60px;
-		}
-		.submitButton{
-			width: 30%;
-			float: right;
-		}
-		.backLoginButton{
-			width: 30%;
-			float: left;
-		}
-		.submitContainer{
-			height: 80px;
-			border-bottom: 1px solid #CCC
-		}
-		
-		.registerContainer{
-			padding-top: 25px;
-		}
-		
-		.registerContainer a{
-			color: #38C;
-			font-weight: normal;
-			text-decoration: none;
-		}
-		.loginLabel{
-			font-size: 13px;
-		}
-		#title-button.ui-btn {
-			padding: 0.4em 1em;
-		}
-		.longdiv{
-		  width: 65% !important;
-		}
-
-		.shortdiv{
-		  width: 35% !important;
-		}
-	</style>
 </head>
 
 <body>
@@ -109,9 +24,9 @@
 			<div id="ctn-err" class="bi-invisible"></div>
 			<p class="loginLabel">Please enter your username and password below to access your JYOSTAR account.</p>
            <label for="txt-email"></label>
-           <input type="text" placeholder="Email Address" maxlength="254" autocomplete="off" name="txt-email-address" id="txt-email-address" value="sreekanth.yarram@gmail.com"/>
+           <input type="text" placeholder="Email Address" maxlength="254" autocomplete="off" name="txt-email-address" id="txt-email-address" value=""/>
            <label for="txt-password"></label>
-           <input type="password" placeholder="Password" name="txt-password" id="txt-password" value="srikantha"/>
+           <input type="password" placeholder="Password" name="txt-password" id="txt-password" value=""/>
 		   <div class="submitContainer">
            <a href="#dlg-invalid-credentials" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all submitButton">Submit</a>
 		   <p class = "forgotLink"><a href="#forget-password-page" >Forgot Password?</a></p>
@@ -201,7 +116,6 @@
             </div>
     </div>
 	
-    <script src="lib/fastclick/fastclick.min.js"></script>
     <script src="lib/jquery/2.1.1/jquery-2.1.1.min.js"></script>
     <script src="js/js/api-messages.js"></script>
     <script src="js/js/settings.js"></script>
