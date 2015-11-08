@@ -1,0 +1,133 @@
+﻿body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+}
+h1, h2, h3, h4, h5 {
+    color:#0071bc;
+}
+
+.link {
+	width:50%;
+}
+
+.ui-btn-icon-notext.ui-corner-all {
+    -webkit-border-radius: .3125em;
+    border-radius: .3125em;
+}
+.ui-title {
+    color:#fff;
+}
+.mc-text-center {
+    text-align:center;
+}
+.mc-top-margin-1-5 {
+    margin-top:1.5em;
+}
+h2.mc-text-danger,
+h3.mc-text-danger  {
+    color:red;
+}
+
+.bi-invalid-input {
+    background-color:#fffacd!important;
+}
+
+.bi-invisible {
+    display:none;
+}
+
+.bi-ctn-err {
+    background-color:#ffe1cd;
+    padding:0 .5em;
+    margin-bottom:.5em;
+    border: 1px solid #e9cfbd;
+    border-radius:3px 3px;
+}
+
+.bi-header {
+    border: 0px; position: fixed; width: 100%; top: 0px; left: 0px; z-index: 21;
+}
+
+/*-------------------------
+		Common Styles
+-------------------------*/
+.ui-header .ui-title{
+	margin: 0;
+	padding: 0.1em 0;
+}
+.ui-header .ui-title img{
+	width: 60%;
+}
+.ui-page-theme-a .ui-bar-inherit{
+	background-color: #FFF;
+}
+.login-page .ui-content{
+	padding: 1em 2em;
+}
+/*::-webkit-input-placeholder {
+	color: #6A6A6A !important;
+	font-style: italic !important;
+}
+::-moz-placeholder {
+	color: #6A6A6A !important;
+	font-style: italic !important;
+} /* firefox 19+ */
+/*:-ms-input-placeholder {
+	color: #6A6A6A !important;
+	font-style: italic !important;
+}*//* ie */
+input:-moz-placeholder { 
+	color: #6A6A6A !important;
+	font-style: italic !important; 
+}
+#txt-email-address, #txt-password {
+	background-color: #FFF;
+	background-image: none;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+.forgotLink a{
+	color: #38C;
+	font-weight: normal;
+	text-decoration: none;
+	margin-top: 60px;
+}
+.submitButton{
+	width: 30%;
+	float: right;
+}
+.backLoginButton{
+	width: 30%;
+	float: left;
+}
+.submitContainer{
+	height: 80px;
+	border-bottom: 1px solid #CCC
+}
+
+.registerContainer{
+	padding-top: 25px;
+}
+
+.registerContainer a{
+	color: #38C;
+	font-weight: normal;
+	text-decoration: none;
+}
+.loginLabel{
+	font-size: 13px;
+}
+#title-button.ui-btn {
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+.longdiv{
+  width: 65% !important;
+}
+
+.shortdiv{
+  width: 35% !important;
+}
