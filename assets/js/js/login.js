@@ -41,7 +41,7 @@ $(document).on("pagebeforeshow","#login-page",function() {
 	app.loginController.resetLoginForm();
 	var userLoggedIn = app.loginController.isUserLoggedIn();
 	var userData = app.loginController.getUserDetails();
-	debugger;
+
 	if(userLoggedIn){
 		$("#txt-email-address").val(userData.userName);
 		$("#txt-password").val(userData.password);

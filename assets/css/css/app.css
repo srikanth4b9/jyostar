@@ -57,13 +57,13 @@ h3.mc-text-danger  {
 	padding: 0.1em 0;
 }
 .ui-header .ui-title img{
-	width: 60%;
+	height: 60px;
 }
 .ui-page-theme-a .ui-bar-inherit{
 	background-color: #FFF;
 }
 .login-page .ui-content{
-	padding: 1em 2em;
+	padding: 1em 1em;
 }
 /*::-webkit-input-placeholder {
 	color: #6A6A6A !important;
@@ -118,7 +118,7 @@ input:-moz-placeholder {
 	text-decoration: none;
 }
 .loginLabel{
-	font-size: 13px;
+	font-size: 14px;
 }
 #title-button.ui-btn {
 	padding-top: 7px;

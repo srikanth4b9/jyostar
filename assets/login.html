@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="css/slick.css" />
 	<title>::JyoStar Login::</title>
 	<style>
-		
+		h3{
+			margin: 5px 0px;
+			text-align: center;
+		}
 	</style>
 </head>
 
@@ -21,12 +24,13 @@
 		<!-- Login Page -->
       <div data-role="page" class="login-page" id="login-page">
          <div data-role="header">
-            <h1><img src="images/logo.jpg" />
+            <h1><img src="images/logo.png"/></h1>
 		 </div><!-- /navbar --> 
        <div role="main" class="ui-content">
-           <h4>Login in with JyoStar</h4>
+           <h3>Login in with JyoStar</h3>
 			<div id="ctn-err" class="bi-invisible"></div>
 			<p class="loginLabel">Please enter your username and password below to access your JYOSTAR account.</p>
+			<p class="loginLabel"> You will be the first to watch new films on release date. </p>
            <label for="txt-email"></label>
            <input type="text" placeholder="Email Address" maxlength="254" autocomplete="off" name="txt-email-address" id="txt-email-address" value=""/>
            <label for="txt-password"></label>
@@ -47,14 +51,14 @@
 	
     <div data-role="page" class="login-page" id="forget-password-page">
          <div data-role="header">
-            <h1><img src="images/logo.jpg" />
+            <h1><img src="images/logo.png"/></h1>
             <!-- /navbar -->
          </div>
        <div role="main" class="ui-content">
-           <h4>Reset your Password</h4>
-			<div id="ctn-err" class="bi-invisible"></div>
-			<p class="loginLabel">In order to reset your password, please enter the following information.</p>
-           <label for="txt-email"></label>
+           <h3>Reset your Password</h3>
+		   <p class="loginLabel">Please enter the e-mail address what you used while registering account with JYOSTAR.</p> 
+		  	<div id="ctn-err" class="bi-invisible"></div>
+		    <label for="txt-email"></label>
            <input type="text" name="txt-email-address" id="txt-email-address" placeholder="Email Address" value="">
            <a href="#dlg-invalid-credentials" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all submitButton">Submit</a>
 		   
@@ -66,20 +70,20 @@
 	<!-- Sign-up Page -->
     <div data-role="page" id="page-signup">
 	         <div data-role="header">
-	            <h1><img src="images/logo.jpg" />
+	            <h1><img src="images/logo.png" /></h1>
 			 </div>
 			<div role="main" class="ui-content">
-            	<h4>Sign Up</h4>
+            	<h3>New User - SIGN UP</h3>
             	<div id="ctn-err" class="bi-invisible"></div>
 				<fieldset class="ui-grid-a">
-				    <div class="ui-block-a shortDiv">
+				    <div class="ui-block-a shortDiv" style="margin-left: -5px;">
 							<select class="form-control" id="title" name="title">
 								<option value="">Select </option>
-							  <option value="Mr.">Mr.</option>
-							  <option value="Mrs.">Mrs.</option>
-							  <option value="Dr.">Dr.</option>
-							  <option value="Ms.">Ms.</option>  
-							  <option value="Miss.">Miss.</option> 
+								  <option value="Mr.">Mr.</option>
+								  <option value="Mrs.">Mrs.</option>
+								  <option value="Dr.">Dr.</option>
+								  <option value="Ms.">Ms.</option>  
+								  <option value="Miss.">Miss.</option> 
 							</select>
 				    </div>
 				    <div class="ui-block-b longDiv">

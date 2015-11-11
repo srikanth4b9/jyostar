@@ -16,13 +16,15 @@
 	.my-page .ui-listview li {
 		float: left;
 		width: 150px; /* 33.3333% incl. 2 x 1.2% margin */
-		height: 150px; /* 232p */
+		height: 140px; /* 232p */
 		margin: 5px 10px;
 	}
-	.my-page .ui-listview li:first-child{
+	.my-page .ui-listview li:nth-child(odd) {
+		margin: 5px 15px;
+	}
+	.my-page .ui-listview li:nth-child(even) {
 		margin: 5px 10px;
 	}
-
 	.my-page .ui-listview li > .ui-btn {
 		-webkit-box-sizing: border-box; /* include padding and border in height so we can set it to 100% */
 		-moz-box-sizing: border-box;

@@ -52,12 +52,19 @@ $(document).ready(function() {
         cssEase: 'linear'
 	});
 	
+	$(".slider").append('<div class="cycle-prev"></div><div class="cycle-next"></div>');
+	
 	$(document).on("click", "#moviesList", function(){
 		getcurrentLocatation();
 	});
 
 	$(document).on("click", "#tvSerials", function(){
 		getcurrentLocatation();
+	});
+	
+	$(document).on("click", "#logout", function(){
+		sessionStorage.clear();
+		location.href = "login.html";
 	});
 
 	getcurrentLocatation();
@@ -82,11 +89,11 @@ $(document).ready(function() {
 		var html = "";
 		if(currentPage == "Serials"){
 			$.each(response, function(i, item) {
-				html += '<li id="updateVersionItem-' + (i) + '" class = "ui-li-has-thumb" onclick="onClickTVProgram(\'' + item.sid + '\')"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img src="http://jyostar.com'+item.mobilethumb+'" class="ui-li-thumb"><p>' + item.title + '</p></a></li>';
+				html += '<li id="updateVersionItem-' + (i) + '" class = "ui-li-has-thumb" onclick="onClickTVProgram(\'' + item.sid + '\')"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img src="http://jyostar.com'+item.webthumb+'" class="ui-li-thumb"><p>' + item.title + '</p></a></li>';
 			});
 		} else {
 			$.each(response, function(i, item) {
-				html += '<li id="updateVersionItem-' + (i) + '" class = "ui-li-has-thumb" onclick="onClickMovie(\'' + item.mid + '\')"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img src="http://jyostar.com'+item.mobilethumb+'" class="ui-li-thumb"><p>' + item.title + '</p></a></li>';
+				html += '<li id="updateVersionItem-' + (i) + '" class = "ui-li-has-thumb" onclick="onClickMovie(\'' + item.mid + '\')"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img src="http://jyostar.com'+item.webthumb+'" class="ui-li-thumb"><p>' + item.title + '</p></a></li>';
 			});	
 		}
 
@@ -252,6 +259,13 @@ function onClickTVProgram(sid) {
 	makeAJAXCall(tvProgramDetailsURL, inputData, renderDetailsPage);
 }
 
+$(document).on("click", ".cycle-prev", function(){
+	$(".slider").slick("slickPrev");
+});
+$(document).on("click", ".cycle-next", function(){
+	$(".slider").slick("slickNext");
+});
+
 function renderDetailsPage(responseObj){
 	
 	var selectedMovieObject = responseObj[0];
@@ -260,26 +274,24 @@ function renderDetailsPage(responseObj){
 	$(".slider").hide();
 	$("#film-details-page").show();
 	
-    var iframeEle = $("iframe");
-    iframeEle.attr("width", $(document).width());
-   
 	$("#movieName").html(selectedMovieObject.title);
 	$("#cast").html(selectedMovieObject.cast_crew);
 	$("#filmDetails").html(selectedMovieObject.body);
 	if(selectedMovieObject.paidmovie && selectedMovieObject.paidmovie == "1"){
 		$(".paidmovie_1 a").attr("onclick", "window.open('"+selectedMovieObject.paidmovieurl+"', '_system')").show();
 		$(".promoContainer").show();
-		$(".promoContainer h3").text(selectedMovieObject.promocode).show();
-		$(".promoContainer p").text(selectedMovieObject.promotext).show();
+		$(".promoContainer #promoCode").text(selectedMovieObject.promocode).show();
+		$(".promoContainer #promoText").text(selectedMovieObject.promotext).show();
 	} else {
 		$(".paidmovie_1 a").hide();
 		$(".promoContainer").hide();
 	}
 
-	var movieSRC = $(selectedMovieObject.video).attr("src");
-	iframeEle.attr("src", movieSRC);
+	$(".movie-video").empty().append(selectedMovieObject.video);
+    var iframeEle = $(document).find("iframe");
+    iframeEle.attr("width", $(document).width());
 	
-	$("#img_poster").attr("src", "http://jyostar.com"+selectedMovieObject.webthumb).attr("width", "150").attr("height", "200");
+	$("#img_poster").attr("src", "http://jyostar.com"+selectedMovieObject.poster).attr("height", "175");
 	
 }
 

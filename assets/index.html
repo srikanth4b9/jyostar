@@ -16,7 +16,7 @@
 		      display: block;
 			  margin: 0 auto;
 			  text-decoration: none;
-		      width: 81%;
+			  width: 88%;
 		      padding: 10px 16px;
 		      font-size: 18px;
 		      line-height: 1.3333333;
@@ -48,7 +48,8 @@
 			  color: #3c763d;
 		      background-color: #dff0d8;
 		      border-color: #d6e9c6;
-			  width: 88%;
+			  width: 96%;
+			  padding: 0 5px;
 			  margin: 0 auto;
 		      border: 1px solid transparent;
 		      border-radius: 4px;
@@ -62,7 +63,7 @@
       <div data-role="page" class="home-page">
          <div data-role="header">
             <h1>
-               <img src="images/logo.jpg" />
+               <img src="images/logo.png" />
             </h1>
             <div data-role="navbar" data-grid="d">
                <ul>
@@ -70,41 +71,23 @@
                   <li id="tvSerials"><a href="#">TV</a></li>
                   <li><a href="#">Language</a></li>
                   <li><a href="#">About us</a></li>
-                  <li><a href="login.html"  data-transition="slide" data-direction="reverse">Sign out</a></li>
+                  <li id="logout"><a data-transition="slide" data-direction="reverse">Sign out</a></li>
                </ul>
             </div>
             <!-- /navbar -->
          </div>
          <!-- /header -->
          <div role="main" class="ui-content">
-         <div class="slider">
-               <div>
-                  <img src="images/slider-1.jpg"/>
-                  <div class="caption-overlay">
-                     <p>
-                        <span></span>Stream thousands of brand new movies and TV shows on your laptop, tablet, ipod, iphone or mobile...
-                     </p>
-                  </div>
-               </div>
-               <div>
-                  <img src="images/slider-2.jpg"/>
-                  <div class="caption-overlay">
-                     <p><span>
-                        </span>Stream filmdetails housands of brand new movies and TV shows on your laptop, tablet, ipod, iphone or mobile...
-                     </p>
-                  </div>
-               </div>
-               <div>
-                  <img src="images/slider-3.jpg"/>
-                  <div class="caption-overlay">
-                     <p>
-                        <span></span>Stream thousands of brand new movies and TV shows on your laptop, tablet, ipod, iphone or mobile...
-                     </p>
-                  </div>
-               </div>
-            </div>
+
+		         <div class="slider">
+		               <div><img src="images/slider-1.jpg"/></div>
+		               <div><img src="images/slider-2.jpg"/></div>
+		               <div><img src="images/slider-3.jpg"/></div>
+		         </div>
+
 			<div id="film-index-page">
 				<div class="ui-grid-b" id="dropDownFilterList">
+
 			        <div class="ui-block-a">
 						<label class="optionLabel typeLabel">Movie Type</label>
 					  <select id="mtype" name="mtype" data-mini="true"></select>
@@ -133,20 +116,18 @@
 					<a href="">Click To Watch Paid Movie</a>
 				</div>
 				<div class="promoContainer">
-					<h3 class="text-center"></h3>
-					<p class="text-center"></p>
+					<p class="text-center">Use Promo Code: <span id="promoCode"></span>.&nbsp;<span id="promoText"></span> </p>
 				</div>
 				<div class="filmdetails-container"  style="padding-bottom: 15px;">
-					<img src="images/filmdetail-1.jpg" id = "img_poster" class = "img_poster"/>
+					<img src="images/filmdetail-1.jpg" id = "img_poster" class = "img_poster" width="100" height="150"/>
 					<div class="film-details">
-						<h2 id  = "movieName" >Aagam <span class="pull-right" id = "duration">Duration: 02:30 Hours<br/>Language: Tamil</span></h2>
-						<p class="film-maindetails" id = "filmDetails" > Aagam is an upcoming movie direction by debut director Vijay Anand Shreeram. The movie movie irfan, Jayaprakash, Riyas Khan and debut actress Dheekshita in lead roles.</p>
-						<hr/>
-						<ul>
-	                        <li id = "cast" ><label>Cast: </label>Irfan, Jayaprakash V, Riyaz Khan, Ravi Raja, Deekshita</li>
-	                        <li>
-							
-	                    </ul>
+						<h2 id = "movieName" >Aagam <span class="pull-right" id = "duration">Duration: 02:30 Hours<br/>Language: Tamil</span></h2>
+						<p class="film-maindetails" id = "filmDetails" ></p>
+						
+						<div class="dispaly: block !important; clear: both !important;">
+							<hr/>
+	                        <li id = "cast" ></li>
+	                    </div>
 					</div>
 					</div>
 			</div>
