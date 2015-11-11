@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>::JyoStar::</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+	<link rel="stylesheet" href="css/slick.css" />
+	<link rel="stylesheet" href="css/font-awesome.css" />
+	<link rel="stylesheet" href="css/jyostar.css" />
+	
+</head>
+
+<body>
+
+	<div data-role="page" class="home-page">
+
+		<div data-role="header">
+			<h1>
+				<img src="images/logo.jpg" />
+			</h1>
+			<div data-role="navbar" data-grid="d">
+				<ul>
+					<li>
+						<a href="#" class="ui-btn-active">Movies</a>
+					</li>
+					<li>
+						<a href="#">TV Serials</a>
+					</li>
+					<li>
+						<a href="#">TV Shows</a>
+					</li>
+					<li>
+						<a href="#">Language</a>
+					</li>
+					<li>
+						<a href="#">About us</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /navbar -->
+		</div>
+		<!-- /header -->
+
+		<div role="main" class="ui-content">
+			<div class="slider">
+				 <div><img src="images/slider-1.jpg"/><div class="caption-overlay"><p><span></span>Stream thousands of brand new movies and TV shows on your laptop, tablet, ipod, iphone or mobile...</p></div></div>
+    <div><img src="images/slider-2.jpg"/><div class="caption-overlay"><p><span></span>Stream thousands of brand new movies and TV shows on your laptop, tablet, ipod, iphone or mobile...</p></div></div>
+    <div><img src="images/slider-3.jpg"/><div class="caption-overlay"><p><span></span>Stream thousands of brand new movies and TV shows on your laptop, tablet, ipod, iphone or mobile...</p></div></div>
+				</div>
+			<ul data-role="listview" data-inset="true" class="film-list">
+				<li>
+					<a href="#">
+						<img src="images/film-1.jpg">
+						<h2>AAGAM</h2>
+						<p class="dscrp">Broken Bells</p>
+						<div class="other-dtls">
+							<p><span>Duration:</span><span>02:30 Hours</span></p>
+							<p><span>Language:</span><span>02:30 Hours</span></p>
+							<p><span>Gener:</span><span>Suspense Thriller</span></p>
+							</div>
+						<i class="fa fa-chevron-right"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/film-1.jpg">
+						<h2>AAGAM</h2>
+						<p>Audio Function Highlight</p>
+						<div class="other-dtls">
+							<p><span>Duration:</span><span>02:30Hours</span></p>
+							<p><span>Language:</span><span>02:30Hours</span></p>
+						
+							</div>
+						<i class="fa fa-chevron-right"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/film-1.jpg">
+						<h2>AAGAM</h2>
+						<p>Phoenix</p>
+						<div class="other-dtls">
+							
+						
+							</div>
+						<i class="fa fa-chevron-right"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- /content -->
+
+
+	</div>
+	<!-- /page -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/slick.js"></script>
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('.slider').slick({
+		dots: false,
+		infinite: true,
+		speed: 500,
+		fade: true,
+		arrows: false,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		cssEase: 'linear'
+});
+    });
+  </script>
+
+</body>
+
+</html>

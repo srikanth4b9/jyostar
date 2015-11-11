@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>::JyoStar::</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+	<link rel="stylesheet" href="css/slick.css" />
+	<link rel="stylesheet" href="css/font-awesome.css" />
+	<link rel="stylesheet" href="css/jyostar.css" />
+	
+</head>
+
+<body>
+
+	<div data-role="page" class="home-page">
+
+		<div data-role="header">
+			<h1>
+				<img src="images/logo.jpg" />
+			</h1>
+			<div data-role="navbar" data-grid="d">
+				<ul>
+					<li>
+						<a href="#" class="ui-btn-active">Movies</a>
+					</li>
+					<li>
+						<a href="#">TV Serials</a>
+					</li>
+					<li>
+						<a href="#">TV Shows</a>
+					</li>
+					<li>
+						<a href="#">Language</a>
+					</li>
+					<li>
+						<a href="#">About us</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /navbar -->
+		</div>
+		<!-- /header -->
+
+		<div role="main" class="ui-content">
+			<div class="movie-video">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/TzU3UJuV80w" frameborder="0" allowfullscreen></iframe>
+				</div>
+			<div class="filmdetails-container">
+				<img src="images/filmdetail-1.jpg" />
+				<div class="film-details">
+					<h2>Aagam <span class="pull-right">Duration:02:30 Hours<br/>Language:Tamil</span></h2>
+					<p class="film-maindetails">Aagam is an upcoming movie direction by debut director Vijay Anand Shreeram. The movie movie irfan, Jayaprakash, Riyas Khan and debut actress Dheekshita in lead roles.</p>
+					<hr/>
+					<ul>
+				<li><label>Cast:</label>Irfan, Jayaprakash V, Riyaz Khan, Ravi Raja, Deekshita</li>
+						<li><span><label>Director:</label>Vijay Anand Sriram</span> <span><label>Music Director:</label>Vishal Chandrashekhar</span></li>
+					</ul>
+					</div>
+				</div>
+		</div>
+		<!-- /content -->
+
+
+	</div>
+	<!-- /page -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/slick.js"></script>
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('.slider').slick({
+		dots: false,
+		infinite: true,
+		speed: 500,
+		fade: true,
+		arrows: false,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		cssEase: 'linear'
+});
+    });
+  </script>
+
+</body>
+
+</html>
