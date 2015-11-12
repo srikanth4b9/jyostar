@@ -171,8 +171,10 @@ $(document).ready(function() {
 					var currentPage = getcurrentSelectedPageFromSession();
 					if (currentPage === "Movies") {
 						getMoviesDataFromServer(country);
-					}else {
+					}else if (currentPage === "Serials"){
 						getTvDataFromServer (country);
+					}else {
+						getListFromServer(country);
 					}
 				}
 			);
@@ -209,6 +211,22 @@ $(document).ready(function() {
 		var inputData = { "cuid": country};
 		makeAJAXCall(serialsURL, inputData, populateGridView);
 	}
+	
+	// get all list from Jyostar server
+	
+	function getListFromServer(country) {
+	    $.mobile.loading( 'show', {
+		      text: "Loading Movies...",
+		      textVisible: true,
+		      theme: "z",
+		      textonly: false,
+		      html: ""
+	    });
+		var moviesURL = "http://jyostar.com/star/list.php";
+		var inputData = { "cuid": country };
+		makeAJAXCall(moviesURL, inputData, populateGridView);
+	}
+	
 });
 
 
@@ -224,10 +242,10 @@ function getdatafromsessionForKey(key) {
 
 function getcurrentSelectedPageFromSession() {
 	var currentPage1 = getdatafromsessionForKey("currentPage");
-	if (!currentPage1) {
-		currentPage1 = "Movies";
-		savedatainsessionWithKey(currentPage1,"currentPage");
-	}
+	// if (!currentPage1) {
+	// 	currentPage1 = "Movies";
+	// 	savedatainsessionWithKey(currentPage1,"currentPage");
+	// }
 	return currentPage1;
 	 
 }
