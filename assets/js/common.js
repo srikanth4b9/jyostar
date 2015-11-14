@@ -287,13 +287,18 @@ $(document).on("click", ".cycle-next", function(){
 function renderDetailsPage(responseObj){
 	
 	var selectedMovieObject = responseObj[0];
+	console.log(responseObj[0]);
 
 	$("#film-index-page").hide();
 	$(".slider").hide();
 	$("#film-details-page").show();
-	
+	$("#img_poster").attr('src','');
 	$("#movieName").html(selectedMovieObject.title);
-	$("#cast").html(selectedMovieObject.cast_crew);
+	$(".filmcasting-detail #cast").html(selectedMovieObject.cast_crew);
+	$(".filmcasting-language .context-value").html(selectedMovieObject.language);
+	$(".filmcasting-duration .context-value").html(selectedMovieObject.duration);
+	$(".filmcasting-release .context-value").html(selectedMovieObject.releaseon);
+	$(".filmcasting-status .context-value").html(selectedMovieObject.status);
 	$("#filmDetails").html(selectedMovieObject.body);
 	if(selectedMovieObject.paidmovie && selectedMovieObject.paidmovie == "1"){
 		$(".paidmovie_1 a").attr("onclick", "window.open('"+selectedMovieObject.paidmovieurl+"', '_system')").show();

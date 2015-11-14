@@ -10,6 +10,13 @@
 	        <link rel="stylesheet" href="css/listview-grid.css" />
       <link rel="stylesheet" href="css/font-awesome.css" />
       <script src="js/jquery.js"></script>
+	  <script>
+	  	$(document).bind('mobileinit',function(){
+	      $.mobile.changePage.defaults.changeHash = false;
+	      $.mobile.hashListeningEnabled = false;
+	      $.mobile.pushStateEnabled = false;
+	  	});
+	  </script>
       <script src="js/jquery.mobile-1.4.5.min.js"></script>
 	  <style>
 		  .paidmovie_1 a{
@@ -65,15 +72,20 @@
             <h1>
                <img src="images/logo.png" />
             </h1>
-            <div data-role="navbar" data-grid="d">
+            <div data-role="navbar" data-grid="d" >
                <ul>
                   <li id="moviesList"><a href="#" class="ui-btn-active">Movies</a></li>
                   <li id="tvSerials"><a href="#">TV</a></li>
-                  <li><a href="#">Language</a></li>
-                  <li><a href="#">About us</a></li>
+                  <li>
+					  <a href="#">Language</a>
+				  </li>
+                  <li id="about">
+					  <a href="#">About us</a>
+				  </li>
                   <li id="logout"><a data-transition="slide" data-direction="reverse">Sign out</a></li>
                </ul>
             </div>
+		  
             <!-- /navbar -->
          </div>
          <!-- /header -->
@@ -119,14 +131,25 @@
 					<p class="text-center">Use Promo Code: <span id="promoCode"></span>.&nbsp;<span id="promoText"></span> </p>
 				</div>
 				<div class="filmdetails-container"  style="padding-bottom: 15px;">
-					<img src="images/filmdetail-1.jpg" id = "img_poster" class = "img_poster" width="100" height="150"/>
 					<div class="film-details">
 						<h2 id = "movieName" >Aagam <span class="pull-right" id = "duration">Duration: 02:30 Hours<br/>Language: Tamil</span></h2>
+						<img src="images/filmdetail-1.jpg" id = "img_poster" class = "img_poster"/>
 						<p class="film-maindetails" id = "filmDetails" ></p>
-						
-						<div class="dispaly: block !important; clear: both !important;">
-							<hr/>
-	                        <li id = "cast" ></li>
+					
+						<div class="filmcasting-detail">
+	                        <li id = "cast"></li>
+	                    </div>
+						<div class="filmcasting-language">
+	                        <li id = "cast"><p><strong>Language : </strong><span class='context-value'></span></p></li>
+	                    </div>
+						<div class="filmcasting-duration">
+	                        <li id = "cast"><p><strong>Duration (HH:MM:SS) : </strong><span class='context-value'></span></p></li>
+	                    </div>
+						<div class="filmcasting-release">
+	                        <li id = "cast"><p><strong>Released Date : </strong><span class='context-value'></span></p></li>
+	                    </div>
+						<div class="filmcasting-status">
+	                        <li id = "cast"><p><strong>Status : </strong><span class='context-value'></span></p></li>
 	                    </div>
 					</div>
 					</div>

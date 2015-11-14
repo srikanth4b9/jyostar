@@ -1,11 +1,11 @@
-/*@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,500,300,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,500,300,700);
 @import url(http://fonts.googleapis.com/css?family=Pacifico|Damion|Playball);
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,900,400,300);
 
 body{
 font-family:'Raleway', 'Roboto Condensed', Arial, serif;
 font-size:12px;
-}*/
+}
 /*-------------------------
 		Common Styles
 -------------------------*/
@@ -192,31 +192,31 @@ font-size:12px;
 		film Details Styles
 -----------------------------*/
 .filmdetails-container{
-	background: #333333;
+	/*background: #333333;*/
 	text-shadow: none;
 	font-weight: normal;
     display: inline-block;
-	width:100%;
-	padding-top: 0.5em;
-	margin-top: 5px;
+	width: 97%;
+	margin: 8px;
 }
 .filmdetails-container img{
-	float: left;
-	margin-right: 15px;
-	margin-left: 10px;
-	width: 30%;
+	float: right;
 	max-width: 100%;
 	height: auto;
+    display: block;
+    margin: 7px 10px 5px 10px;
 }
 .filmdetails-container  h2{
-    background: #091223;
-    color: #789ee5;
-    font-size: 1em;
+    /*background: #091223;
+    color: #789ee5;*/
+	width: 100%;
+	height auto;
     overflow: hidden;
     text-shadow: none;
-	padding: 0.1em 0.5em;
-    margin: 0 1em;
-    line-height: 1.7em;
+    margin: 10px;
+    line-height: 1.5;
+	font-size: 22px;
+	margin: 5px 0 5px 0;
 }
 .filmdetails-container  h2 span{
     font-size: 14px;
@@ -225,10 +225,7 @@ font-size:12px;
     line-height: 16px;
 }
 .filmdetails-container p{
-	color: #FFF;
-	font-size: 1em;
-	line-height: 20px;
-	padding: 0 0.5em;
+	color: #000;
 }
 .filmdetails-container ul{
 	margin: 0;
@@ -274,7 +271,7 @@ iframe{
 
 @media only screen and (max-width:480px){
 	.filmdetails-container img{
-		width: 30%;
+		width: 45%;
 	}
 	.filmdetails-container ul li span{
 		width:49.5%;	
@@ -285,7 +282,7 @@ iframe{
 }
 
 #cast p{
-	font-size: 14px;
+	font-size: 16px;
 }
 
 /* prev / next links */
@@ -298,5 +295,48 @@ iframe{
 .cycle-next:hover { 
 	background: url('../images/slider-next-hover.png') 50% 50% no-repeat; background-size: 70%;
 }
+.film-details p{
+	margin: 5px 0 15px 0;
+}
+.film-details p.film-maindetails{
+	font-family: "Raleway","Roboto Condensed",Arial,serif;
+	font-size: 16.8px;
+	font-weight: 400;
+	line-height: 1.5;
+	margin: 5px 0 15px 0;
+}
 
-
+.filmcasting-detail #cast{
+	font-size: 16.8px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+.filmcasting-detail,.filmcasting-language, .filmcasting-duration, .filmcasting-release, .filmcasting-status {
+	clear: both;
+}
+.filmcasting-detail p{
+	margin: 10px 0px 0px 0px;
+	line-height: 1.5;
+}
+.filmcasting-language p{
+	margin: 0px 0px 0px 0px;
+	line-height: 1.5;
+} 
+.filmcasting-duration p {
+	margin: 0px 0px 0px 0px;
+	line-height: 1.5;
+} 
+.filmcasting-release p{
+	margin: 0px 0px 0px 0px;
+	line-height: 1.5;
+}
+ .filmcasting-status p {
+ 	margin: 0px 0px 0px 0px;
+ 	line-height: 1.5;
+}
+.filmcasting-detail li, .filmcasting-language li, .filmcasting-duration li, .filmcasting-release li, .filmcasting-status li{
+	list-style-type: none;
+}
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{
+	background: #fff;
+}

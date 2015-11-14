@@ -1,4 +1,9 @@
 /* A bit custom styling */
+.my-page{
+	width: 97%;
+	height: auto;
+	position: absolute;
+}
 .my-page .ui-listview li .ui-btn p {
 	color: white;
 	margin: auto;
@@ -19,11 +24,12 @@
 		height: 140px; /* 232p */
 		margin: 5px 10px;
 	}
+	
 	.my-page .ui-listview li:nth-child(odd) {
-		margin: 5px 15px;
+		margin: 5px 5px;
 	}
 	.my-page .ui-listview li:nth-child(even) {
-		margin: 5px 10px;
+		margin: 5px 5px;
 	}
 	.my-page .ui-listview li > .ui-btn {
 		-webkit-box-sizing: border-box; /* include padding and border in height so we can set it to 100% */
