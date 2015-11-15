@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>::JyoStar::</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+      <meta charset="utf-8"></meta>
+      <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+      <link rel="stylesheet" href="css/jyostar.css" />
+      <link rel="stylesheet" href="css/slick.css" />
+	        <link rel="stylesheet" href="css/listview-grid.css" />
+      <link rel="stylesheet" href="css/font-awesome.css" />
+      <script src="js/jquery.js"></script>
+	  <script>
+	  	$(document).bind('mobileinit',function(){
+	      $.mobile.changePage.defaults.changeHash = false;
+	      $.mobile.hashListeningEnabled = false;
+	      $.mobile.pushStateEnabled = false;
+	  	});
+	  </script>
+      <script src="js/jquery.mobile-1.4.5.min.js"></script>
+	  <style>
+		  .paidmovie_1 a{
+		      display: block;
+			  margin: 0 auto;
+			  text-decoration: none;
+			  width: 88%;
+		      padding: 10px 16px;
+		      font-size: 18px;
+		      line-height: 1.3333333;
+		      border-radius: 6px;
+			  color: #fff !important;
+			  background-color: #5cb85c;
+			  border-color: #4cae4c;
+
+		      font-weight: 400;
+		      text-align: center;
+		      white-space: nowrap;
+		      vertical-align: middle;
+		      -ms-touch-action: manipulation;
+		      touch-action: manipulation;
+		      cursor: pointer;
+		      -webkit-user-select: none;
+		      -moz-user-select: none;
+		      -ms-user-select: none;
+		      user-select: none;
+		      background-image: none;
+		      border: 1px solid transparent;
+		  }
+		  .paidmovie_1 a:hover, .paidmovie_1 a:active{
+			  color: #fff;
+			  background-color: #449d44;
+			  border-color: #398439;
+		  }
+		  .promoContainer{
+			  color: #3c763d;
+		      background-color: #dff0d8;
+		      border-color: #d6e9c6;
+			  width: 96%;
+			  padding: 0 5px;
+			  margin: 0 auto;
+		      border: 1px solid transparent;
+		      border-radius: 4px;
+		  }
+		  .text-center {
+		      text-align: center;
+		  }
+	  </style>
+   </head>
+   <body>
+      <div data-role="page" class="home-page">
+         <div data-role="header">
+            <h1>
+               <img src="images/logo.png" />
+            </h1>
+			<a href="#left-panel" class="menu-icon" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" >Open left panel</a>
+			<a href="#right-panel" class="menu-icon" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" >Open left panel</a>
+            <!--<div data-role="navbar" data-grid="d" >
+               <ul>
+                  <li id="moviesList"><a href="#" class="ui-btn-active">Movies</a></li>
+                  <li id="tvSerials"><a href="#">TV</a></li>
+                  <li>
+					  <a href="#">Language</a>
+				  </li>
+                  <li id="about">
+					  <a href="#">About us</a>
+				  </li>
+                  <li id="logout"><a data-transition="slide" data-direction="reverse">Sign out</a></li>
+               </ul>
+            </div>-->
+		  
+            <!-- /navbar -->
+         </div>
+         <!-- /header -->
+		 <div class="menu-panel" data-role="panel" id="left-panel" data-theme="b">
+				 <ul data-role="listview" data-inset="true" data-shadow="false">
+  				   <li id="home" data-rel="close">
+  				     <a href="index.html?q=h" rel="external">Home</a>
+  				   </li>
+				   <li id="moviesList" data-rel="close">
+				     <a href="index.html?q=m" rel="external">Movies</a>
+				   </li>
+				   <li id="tvSerials" data-rel="close"><a href="index.html?q=t" rel="external">TV</a></li>
+				   <li data-role="collapsible" data-iconpos="right" data-inset="false">
+				     <h2>Language</h2>
+				     <ul data-role="listview"  class="sub-menu" data-theme="b">
+				       <li data-rel="close"><a href="index.html?q=language-telugu" rel="external">Telugu</a></li>
+				       <li data-rel="close"><a href="index.html?language-tamil" rel="external">Tamil</a></li>
+				     </ul>
+				   </li>
+				   <li id="about" data-role="collapsible" data-iconpos="right" data-inset="false">
+				     <h2>About us</h2>
+				     <ul data-role="listview" class="sub-menu" data-theme="b">
+   				       <li data-rel="close" id='aboutus'><a href="about.html" rel="external">About JYOSTAR</a></li>
+   				       <li data-rel="close" id='founder'><a href="founder.html" rel="external">Founders</a></li>
+   					   <li data-rel="close" id='term'><a href="termofuse.html" rel="external">Term of Use</a></li>
+   					   <li data-rel="close" id='refund'><a href="refund.html" rel="external">Refund Process</a></li>
+   					   <li data-rel="close" id='contact'><a href="contactus.html" rel="external">Contact us</a></li>
+				     </ul>
+				   </li>
+				   <li id="logout" data-rel="close"><a href="#">Sign out</a></li>
+				 </ul>
+		     </div><!-- /panel -->
+		
+			 
+			
+         <div role="main" class="ui-content">
+			 <article class="maincontent contact-page" id="mainbar">
+
+			 <h1>Contact us</h1>
+			 <img class="img-responsive center-block" src="images/jyologo.png" title="Jyo Star Enterprises" alt="Jyo Star Enterprises" height="217" width="281">
+			 <p class="text-center">Jyo Star Enterprises is fully integrated production house  with multi functional capsules in the media industry. The founders have unified vision of creating high quality cinema with a blend of technology and human values.</p>
+
+			 <p class="text-center"><strong>Office Address: </strong><br>
+			                   <span class="glyphicon glyphicon-map-marker"></span> No:25/136, Raghavalaya apartments 2nd floor, Basker Colony, 2nd street, virugambakkam Chennai 600092<br>
+			                   <span class="glyphicon glyphicon-envelope"></span> E-Mail : admin@jyostar.com  <br>
+			                   <span class="glyphicon glyphicon-phone-alt"></span> Phone : + 91 9444689848, +91 9962516378</p>
+			 </article>	
+         <!-- /content -->
+      </div>
+  </div>
+      <!-- /page -->
+    <script>
+    		$(document).ready(function() {
+				$("#about").collapsible('expand');
+ 			$("#contact a").addClass("ui-btn-active");
+ 		});
+    </script>
+   </body>
+</html>

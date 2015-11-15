@@ -16,6 +16,13 @@
 	      $.mobile.hashListeningEnabled = false;
 	      $.mobile.pushStateEnabled = false;
 	  	});
+		
+		document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady() {
+		    document.addEventListener("backbutton", function (e) {
+		        e.preventDefault();
+		    }, false );
+		
 	  </script>
       <script src="js/jquery.mobile-1.4.5.min.js"></script>
 	  <style>

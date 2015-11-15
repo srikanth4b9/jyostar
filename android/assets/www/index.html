@@ -1,119 +1,236 @@
 <!DOCTYPE html>
 <html>
+   <head>
+      <title>::JyoStar::</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+      <meta charset="utf-8"></meta>
+      <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+      <link rel="stylesheet" href="css/jyostar.css" />
+      <link rel="stylesheet" href="css/slick.css" />
+	        <link rel="stylesheet" href="css/listview-grid.css" />
+      <link rel="stylesheet" href="css/font-awesome.css" />
+      <script src="js/jquery.js"></script>
+	  <script>
+	  	$(document).bind('mobileinit',function(){
+	      $.mobile.changePage.defaults.changeHash = false;
+	      $.mobile.hashListeningEnabled = false;
+	      $.mobile.pushStateEnabled = false;
+	  	});
+		
+		document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady() {
+		    document.addEventListener("backbutton", function (e) {
+		        e.preventDefault();
+		    }, false );
+		
+	  </script>
+      <script src="js/jquery.mobile-1.4.5.min.js"></script>
+	  <style>
+		  .paidmovie_1 a{
+		      display: block;
+			  margin: 0 auto;
+			  text-decoration: none;
+			  width: 88%;
+		      padding: 10px 16px;
+		      font-size: 18px;
+		      line-height: 1.3333333;
+		      border-radius: 6px;
+			  color: #fff !important;
+			  background-color: #5cb85c;
+			  border-color: #4cae4c;
 
-<head>
-	<title>::JyoStar::</title>
+		      font-weight: 400;
+		      text-align: center;
+		      white-space: nowrap;
+		      vertical-align: middle;
+		      -ms-touch-action: manipulation;
+		      touch-action: manipulation;
+		      cursor: pointer;
+		      -webkit-user-select: none;
+		      -moz-user-select: none;
+		      -ms-user-select: none;
+		      user-select: none;
+		      background-image: none;
+		      border: 1px solid transparent;
+		  }
+		  .paidmovie_1 a:hover, .paidmovie_1 a:active{
+			  color: #fff;
+			  background-color: #449d44;
+			  border-color: #398439;
+		  }
+		  .promoContainer{
+			  color: #3c763d;
+		      background-color: #dff0d8;
+		      border-color: #d6e9c6;
+			  width: 96%;
+			  padding: 0 5px;
+			  margin: 0 auto;
+		      border: 1px solid transparent;
+		      border-radius: 4px;
+		  }
+		  .text-center {
+		      text-align: center;
+		  }
+	  </style>
+   </head>
+   <body>
+      <div data-role="page" class="home-page">
+         <div data-role="header">
+            <h1>
+               <img src="images/logo.png" />
+            </h1>
+			<a href="#left-panel" class="menu-icon" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" >Open left panel</a>
+			<a href="#right-panel" class="menu-icon" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" >Open left panel</a>
+            <!--<div data-role="navbar" data-grid="d" >
+               <ul>
+                  <li id="moviesList"><a href="#" class="ui-btn-active">Movies</a></li>
+                  <li id="tvSerials"><a href="#">TV</a></li>
+                  <li>
+					  <a href="#">Language</a>
+				  </li>
+                  <li id="about">
+					  <a href="#">About us</a>
+				  </li>
+                  <li id="logout"><a data-transition="slide" data-direction="reverse">Sign out</a></li>
+               </ul>
+            </div>-->
+		  
+            <!-- /navbar -->
+         </div>
+         <!-- /header -->
+		 <div class="menu-panel" data-role="panel" id="left-panel" data-theme="b">
+				 <ul data-role="listview" data-inset="true" data-shadow="false">
+  				   <li id="home" data-rel="close">
+  				     <a href="#" rel="external">Home</a>
+  				   </li>
+				   <li id="moviesList" data-rel="close">
+				     <a href="#" rel="external">Movies</a>
+				   </li>
+				   <li id="tvSerials" data-rel="close"><a href="#" rel="external">TV</a></li>
+				   <li data-role="collapsible" data-iconpos="right" data-inset="false">
+				     <h2>Language</h2>
+				     <ul data-role="listview"  class="sub-menu" data-theme="b">
+				       <li data-rel="close" id = "telugu"><a href="#">Telugu</a></li>
+				       <li data-rel="close" id = "tamil" ><a href="#">Tamil</a></li>
+				     </ul>
+				   </li>
+				   <li id="about" data-role="collapsible" data-iconpos="right" data-inset="false">
+				     <h2>About us</h2>
+				     <ul data-role="listview" class="sub-menu" data-theme="b">
+				       <li data-rel="close"><a href="about.html" rel="external">About JYOSTAR</a></li>
+				       <li data-rel="close"><a href="founder.html" rel="external">Founders</a></li>
+					   <li data-rel="close"><a href="termofuse.html" rel="external">Term of Use</a></li>
+					   <li data-rel="close"><a href="refund.html" rel="external">Refund Process</a></li>
+					   <li data-rel="close"><a href="contactus.html" rel="external">Contact us</a></li>
+				     </ul>
+				   </li>
+				   <li id="logout" data-rel="close"><a href="#">Sign out</a></li>
+				 </ul>
+		     </div><!-- /panel -->
+		
+			 
+			 <!--<div class="menu-panel" data-role="panel" id="right-panel" data-theme="b" data-position="right">
+					 <ul data-role="listview" data-inset="true" data-shadow="false">
+	  				   <li id="home" class="ui-btn-active">
+	  				     <a href="#">Home</a>
+	  				   </li>
+					   <li id="moviesList">
+					     <a href="#">Movies</a>
+					   </li>
+					   <li id="tvSerials"><a href="#">TV</a></li>
+					   <li id="language" data-role="collapsible" data-iconpos="right" data-inset="false">
+					     <h2>Language</h2>
+					     <ul data-role="listview"  class="sub-menu" data-theme="b">
+					       <li><a href="#">Telugu</a></li>
+					       <li><a href="#">Tamil</a></li>
+					     </ul>
+					   </li>
+					   <li id="about" data-role="collapsible" data-iconpos="right" data-inset="false">
+					     <h2>About us</h2>
+					     <ul data-role="listview" class="sub-menu" data-theme="b">
+					       <li id="about"><a href="#">About JYOSTAR</a></li>
+					       <li id="founder"><a href="#">Founders</a></li>
+						   <li id="term" ><a href="#">Term of Use</a></li>
+						   <li id="refund"><a href="#">Refund Process</a></li>
+						   <li id="contact"><a href="#">Contact us</a></li>
+					     </ul>
+					   </li>
+					   <li id="logout"><a href="#">Sign out</a></li>
+					 </ul>
+			     </div>--><!-- /panel -->
+         <div role="main" class="ui-content">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
-	<link rel="stylesheet" href="css/slick.css" />
-	<link rel="stylesheet" href="css/font-awesome.css" />
-	<link rel="stylesheet" href="css/jyostar.css" />
-	
-</head>
+		         <div class="slider">
+		               <div><img src="images/slider-1.jpg"/></div>
+		               <div><img src="images/slider-2.jpg"/></div>
+		               <div><img src="images/slider-3.jpg"/></div>
+		         </div>
 
-<body>
+			<div id="film-index-page">
+				<div class="ui-grid-b" id="dropDownFilterList">
 
-	<div data-role="page" class="home-page">
-
-		<div data-role="header">
-			<h1>
-				<img src="images/logo.jpg" />
-			</h1>
-			<div data-role="navbar" data-grid="d">
-				<ul>
-					<li>
-						<a href="#" class="ui-btn-active">Movies</a>
-					</li>
-					<li>
-						<a href="#">TV Serials</a>
-					</li>
-					<li>
-						<a href="#">TV Shows</a>
-					</li>
-					<li>
-						<a href="#">Language</a>
-					</li>
-					<li>
-						<a href="#">About us</a>
-					</li>
-				</ul>
+			        <div class="ui-block-a">
+						<label class="optionLabel typeLabel">Movie Type</label>
+					  <select id="mtype" name="mtype" data-mini="true"></select>
+				  </div>
+			        <div class="ui-block-b">
+						<label class="optionLabel">Language</label>
+						<select id="language" name="language" data-mini="true"></select>
+					</div>
+			        <div class="ui-block-c">
+						<label class="optionLabel">Gener</label>
+						<select id="gener" name="gener" data-mini="true"></select>
+					</div>
+			    </div> 
+            	
+				<div class="my-page">
+					<ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true" id="gridView">
+			        </ul>
+				</div> 
 			</div>
-			<!-- /navbar -->
-		</div>
-		<!-- /header -->
-
-		<div role="main" class="ui-content">
-			<div class="slider">
-				 <div><img src="images/slider-1.jpg"/><div class="caption-overlay"><p><span></span>Stream thousands of brand new movies and TV shows on your laptop, tablet, ipod, iphone or mobile...</p></div></div>
-    <div><img src="images/slider-2.jpg"/><div class="caption-overlay"><p><span></span>Stream thousands of brand new movies and TV shows on your laptop, tablet, ipod, iphone or mobile...</p></div></div>
-    <div><img src="images/slider-3.jpg"/><div class="caption-overlay"><p><span></span>Stream thousands of brand new movies and TV shows on your laptop, tablet, ipod, iphone or mobile...</p></div></div>
+			<div id="film-details-page" style="display: none;">
+				<div class="movie-video">
+	                <iframe width="100" height="250" src="http://player.vimeo.com/video/141373922?api=1" 
+	                frameborder="0" autoplay="false"  allowfullscreen webkitallowfullscreen mozallowfullscreen id = "movieVideo" ></iframe>
+				</div> 
+				<div class="paidmovie_1">
+					<a href="">Click To Watch Paid Movie</a>
 				</div>
-			<ul data-role="listview" data-inset="true" class="film-list">
-				<li>
-					<a href="#">
-						<img src="images/film-1.jpg">
-						<h2>AAGAM</h2>
-						<p class="dscrp">Broken Bells</p>
-						<div class="other-dtls">
-							<p><span>Duration:</span><span>02:30 Hours</span></p>
-							<p><span>Language:</span><span>02:30 Hours</span></p>
-							<p><span>Gener:</span><span>Suspense Thriller</span></p>
-							</div>
-						<i class="fa fa-chevron-right"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<img src="images/film-1.jpg">
-						<h2>AAGAM</h2>
-						<p>Audio Function Highlight</p>
-						<div class="other-dtls">
-							<p><span>Duration:</span><span>02:30Hours</span></p>
-							<p><span>Language:</span><span>02:30Hours</span></p>
-						
-							</div>
-						<i class="fa fa-chevron-right"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<img src="images/film-1.jpg">
-						<h2>AAGAM</h2>
-						<p>Phoenix</p>
-						<div class="other-dtls">
-							
-						
-							</div>
-						<i class="fa fa-chevron-right"></i>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<!-- /content -->
-
-
-	</div>
-	<!-- /page -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-<script src="js/slick.js"></script>
- <script type="text/javascript">
-    $(document).ready(function(){
-      $('.slider').slick({
-		dots: false,
-		infinite: true,
-		speed: 500,
-		fade: true,
-		arrows: false,
-		autoplay: true,
-		autoplaySpeed: 2000,
-		cssEase: 'linear'
-});
-    });
-  </script>
-
-</body>
-
+				<div class="promoContainer">
+					<p class="text-center">Use Promo Code: <span id="promoCode"></span>.&nbsp;<span id="promoText"></span> </p>
+				</div>
+				<div class="filmdetails-container"  style="padding-bottom: 15px;">
+					<div class="film-details">
+						<h2 id = "movieName" ><span class="moviname"></span> <span class="stars"></span></h2>
+						<img src="images/filmdetail-1.jpg" id = "img_poster" class = "img_poster"/>
+						<p class="film-maindetails" id = "filmDetails" ></p>
+					
+						<div class="filmcasting-detail">
+	                        <li id = "cast"></li>
+	                    </div>
+						<div class="filmcasting-language">
+	                        <li id = "cast"><p><strong>Language : </strong><span class='context-value'></span></p></li>
+	                    </div>
+						<div class="filmcasting-duration">
+	                        <li id = "cast"><p><strong>Duration (HH:MM:SS) : </strong><span class='context-value'></span></p></li>
+	                    </div>
+						<div class="filmcasting-release">
+	                        <li id = "cast"><p><strong>Released Date : </strong><span class='context-value'></span></p></li>
+	                    </div>
+						<div class="filmcasting-status">
+	                        <li id = "cast"><p><strong>Status : </strong><span class='context-value'></span></p></li>
+	                    </div>
+					</div>
+					</div>
+			</div>
+         <!-- /content -->
+      </div>
+  </div>
+      <!-- /page -->
+      <script src="js/slick.js"></script>
+	  <script src="js/underscore-min.js"></script>
+	  <script src="js/commonMenu.js"></script>
+      <script src="js/common.js"></script>
+      <script src="js/index.js"></script>
+   </body>
 </html>
