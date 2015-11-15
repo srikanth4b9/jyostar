@@ -72,7 +72,9 @@
             <h1>
                <img src="images/logo.png" />
             </h1>
-            <div data-role="navbar" data-grid="d" >
+			<a href="#left-panel" class="menu-icon" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" >Open left panel</a>
+			<a href="#right-panel" class="menu-icon" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" >Open left panel</a>
+            <!--<div data-role="navbar" data-grid="d" >
                <ul>
                   <li id="moviesList"><a href="#" class="ui-btn-active">Movies</a></li>
                   <li id="tvSerials"><a href="#">TV</a></li>
@@ -84,11 +86,71 @@
 				  </li>
                   <li id="logout"><a data-transition="slide" data-direction="reverse">Sign out</a></li>
                </ul>
-            </div>
+            </div>-->
 		  
             <!-- /navbar -->
          </div>
          <!-- /header -->
+		 <div class="menu-panel" data-role="panel" id="left-panel" data-theme="b">
+				 <ul data-role="listview" data-inset="true" data-shadow="false">
+  				   <li id="home" data-rel="close">
+  				     <a href="#" rel="external">Home</a>
+  				   </li>
+				   <li id="moviesList" data-rel="close">
+				     <a href="#" rel="external">Movies</a>
+				   </li>
+				   <li id="tvSerials" data-rel="close"><a href="#" rel="external">TV</a></li>
+				   <li data-role="collapsible" data-iconpos="right" data-inset="false">
+				     <h2>Language</h2>
+				     <ul data-role="listview"  class="sub-menu" data-theme="b">
+				       <li data-rel="close" id = "telugu"><a href="#">Telugu</a></li>
+				       <li data-rel="close" id = "tamil" ><a href="#">Tamil</a></li>
+				     </ul>
+				   </li>
+				   <li id="about" data-role="collapsible" data-iconpos="right" data-inset="false">
+				     <h2>About us</h2>
+				     <ul data-role="listview" class="sub-menu" data-theme="b">
+				       <li data-rel="close"><a href="about.html" rel="external">About JYOSTAR</a></li>
+				       <li data-rel="close"><a href="founder.html" rel="external">Founders</a></li>
+					   <li data-rel="close"><a href="termofuse.html" rel="external">Term of Use</a></li>
+					   <li data-rel="close"><a href="refund.html" rel="external">Refund Process</a></li>
+					   <li data-rel="close"><a href="contactus.html" rel="external">Contact us</a></li>
+				     </ul>
+				   </li>
+				   <li id="logout" data-rel="close"><a href="#">Sign out</a></li>
+				 </ul>
+		     </div><!-- /panel -->
+		
+			 
+			 <!--<div class="menu-panel" data-role="panel" id="right-panel" data-theme="b" data-position="right">
+					 <ul data-role="listview" data-inset="true" data-shadow="false">
+	  				   <li id="home" class="ui-btn-active">
+	  				     <a href="#">Home</a>
+	  				   </li>
+					   <li id="moviesList">
+					     <a href="#">Movies</a>
+					   </li>
+					   <li id="tvSerials"><a href="#">TV</a></li>
+					   <li id="language" data-role="collapsible" data-iconpos="right" data-inset="false">
+					     <h2>Language</h2>
+					     <ul data-role="listview"  class="sub-menu" data-theme="b">
+					       <li><a href="#">Telugu</a></li>
+					       <li><a href="#">Tamil</a></li>
+					     </ul>
+					   </li>
+					   <li id="about" data-role="collapsible" data-iconpos="right" data-inset="false">
+					     <h2>About us</h2>
+					     <ul data-role="listview" class="sub-menu" data-theme="b">
+					       <li id="about"><a href="#">About JYOSTAR</a></li>
+					       <li id="founder"><a href="#">Founders</a></li>
+						   <li id="term" ><a href="#">Term of Use</a></li>
+						   <li id="refund"><a href="#">Refund Process</a></li>
+						   <li id="contact"><a href="#">Contact us</a></li>
+					     </ul>
+					   </li>
+					   <li id="logout"><a href="#">Sign out</a></li>
+					 </ul>
+			     </div>--><!-- /panel -->
          <div role="main" class="ui-content">
 
 		         <div class="slider">
@@ -132,7 +194,7 @@
 				</div>
 				<div class="filmdetails-container"  style="padding-bottom: 15px;">
 					<div class="film-details">
-						<h2 id = "movieName" >Aagam <span class="pull-right" id = "duration">Duration: 02:30 Hours<br/>Language: Tamil</span></h2>
+						<h2 id = "movieName" ><span class="moviname"></span> <span class="stars"></span></h2>
 						<img src="images/filmdetail-1.jpg" id = "img_poster" class = "img_poster"/>
 						<p class="film-maindetails" id = "filmDetails" ></p>
 					

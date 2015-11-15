@@ -71,5 +71,3 @@ $(document).on("pagebeforeshow","#page-signup",function() {
    });
    
 });
-
-

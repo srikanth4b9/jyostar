@@ -1,4 +1,34 @@
 $(document).ready(function() {
+	var country = 'IN';
+	var currentPage = '';
+	$.fn.stars = function() {
+	    return $(this).each(function() {
+	        // Get the value
+	        var val = parseFloat($(this).html());
+	        // Make sure that the value is in 0 - 5 range, multiply to get width
+	        var size = Math.max(0, (Math.min(5, val))) * 16;
+	        // Create stars holder
+	        var $span = $('<span />').width(size);
+	        // Replace the numerical value with stars
+	        $(this).html($span);
+	    });
+	}
+	
+	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1);
+	var hash = hashes.split('=');
+	if(hash[1] !== undefined){
+		if(hash[1] === 'h'){
+			currentPage = '';
+		}else if(hash[1] === 'm'){
+			currentPage = 'Movies';
+		}else if(hash[1] === 't'){
+			currentPage = 'Serials';
+		}else if (hash[1] === 'language-telugu') {
+			currentPage = "telugu"
+		}else if (hash[1] === 'language-tamil'){
+			currentPage = "tamil";
+		}
+	}
 	
 	function appendSelectOptions(response){
 		var uniqueMovieTypes = _.uniq(_.pluck(_.flatten(response), "type"));
@@ -54,23 +84,45 @@ $(document).ready(function() {
 	
 	$(".slider").append('<div class="cycle-prev"></div><div class="cycle-next"></div>');
 	
+	$(document).on("click", "#home", function(){
+		currentPage = '';
+		getListFromServer(country);
+	});
+	
 	$(document).on("click", "#moviesList", function(){
-		getcurrentLocatation();
+		currentPage = 'Movies';
+		getMoviesDataFromServer(country);
 	});
 
 	$(document).on("click", "#tvSerials", function(){
-		getcurrentLocatation();
+		currentPage = 'Serials';
+		getTvDataFromServer(country);
+	});
+	
+	$(document).on("click", "#telugu", function(){
+		currentPage = 'telugu';
+		getLanguageFromServer("telugu",country);
+	});
+	
+	$(document).on("click", "#tamil", function(){
+		currentPage = 'tamil';
+		getLanguageFromServer("tamil",country);	
+			
 	});
 	
 	$(document).on("click", "#logout", function(){
 		sessionStorage.clear();
 		location.href = "login.html";
 	});
+	
+	$(document).on("click", ".menu-panel li a", function(){
+		$(".menu-panel li a").removeClass('ui-btn-active');
+		$(this).addClass('ui-btn-active');
+	});
 
 	getcurrentLocatation();
 	$("#dropDownFilterList").hide();
 	function populateGridView(response, fromService){
-		var currentPage = getcurrentSelectedPageFromSession();
 		if(fromService == "FROM_SERVICE"){
 			appendSelectOptions(response);
 			
@@ -78,10 +130,12 @@ $(document).ready(function() {
 			
 			if(currentPage == "Serials"){
 				$(".typeLabel").text("TV Show Type");
-				$("#tvSerials a").addClass("ui-btn-active");
-			} else {
+				//$("#tvSerials a").addClass("ui-btn-active");
+			} else if(currentPage == "Movies") {
 				$(".typeLabel").text("Movie Type");
-				$("#moviesList a").addClass("ui-btn-active");
+				//$("#moviesList a").addClass("ui-btn-active");
+			}else if (!currentPage || currentPage === ''){
+				$("#home a").addClass("ui-btn-active");
 			}
 			moviesArray = response;
 		}
@@ -164,20 +218,35 @@ $(document).ready(function() {
 	}
 	
 	function getcurrentLocatation() {
+			
+		var country = "IN";
+		if (currentPage === "Movies") {
+			getMoviesDataFromServer(country);
+		}else if (currentPage === "Serials"){
+			getTvDataFromServer (country);
+		}else if (currentPage === "telugu" || currentPage === "tamil")
+		{
+			getLanguageFromServer(currentPage,country)
+		}
+		else {
+			getListFromServer(country);
+		}
+		
 
-		$.getJSON("http://www.telize.com/geoip?callback=?",
-				function(json) {
-					var country = json.country_code;
-					var currentPage = getcurrentSelectedPageFromSession();
-					if (currentPage === "Movies") {
-						getMoviesDataFromServer(country);
-					}else if (currentPage === "Serials"){
-						getTvDataFromServer (country);
-					}else {
-						getListFromServer(country);
-					}
-				}
-			);
+		// $.getJSON("http://www.telize.com/geoip?callback=?",
+		// 		function(json) {
+		// 			alert("test");
+		// 			var country = json.country_code;
+		// 			var currentPage = getcurrentSelectedPageFromSession();
+		// 			if (currentPage === "Movies") {
+		// 				getMoviesDataFromServer(country);
+		// 			}else if (currentPage === "Serials"){
+		// 				getTvDataFromServer (country);
+		// 			}else {
+		// 				getListFromServer(country);
+		// 			}
+		// 		}
+		// 	);
 	}
 	
 	// Get Movies data from Jyostar server
@@ -227,6 +296,21 @@ $(document).ready(function() {
 		makeAJAXCall(moviesURL, inputData, populateGridView);
 	}
 	
+	// get telegu list from Jyostar server
+	
+	function getLanguageFromServer(language,country) {
+
+		var languageurl ;
+		if (language === "telugu") {
+			languageurl = language+".php";
+		}else {
+			languageurl = language+".php";
+		}
+		var moviesURL = "http://jyostar.com/star/"+languageurl;
+		var inputData = { "cuid": country };
+		makeAJAXCall(moviesURL, inputData, populateGridView);
+	}
+	
 });
 
 
@@ -241,11 +325,7 @@ function getdatafromsessionForKey(key) {
 }
 
 function getcurrentSelectedPageFromSession() {
-	var currentPage1 = getdatafromsessionForKey("currentPage");
-	// if (!currentPage1) {
-	// 	currentPage1 = "Movies";
-	// 	savedatainsessionWithKey(currentPage1,"currentPage");
-	// }
+	var currentPage1 = sessionStorage.setItem('currentPage','');
 	return currentPage1;
 	 
 }
@@ -283,7 +363,20 @@ $(document).on("click", ".cycle-prev", function(){
 $(document).on("click", ".cycle-next", function(){
 	$(".slider").slick("slickNext");
 });
-
+$( document ).on( "pageinit", "#demo-page", function() {
+    $( document ).on( "swipeleft swiperight", "#demo-page", function( e ) {
+        // We check if there is no open panel on the page because otherwise
+        // a swipe to close the left panel would also open the right panel (and v.v.).
+        // We do this by checking the data that the framework stores on the page element (panel: open).
+        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
+            if ( e.type === "swipeleft"  ) {
+                $( "#right-panel" ).panel( "open" );
+            } else if ( e.type === "swiperight" ) {
+                $( "#left-panel" ).panel( "open" );
+            }
+        }
+    });
+});
 function renderDetailsPage(responseObj){
 	
 	var selectedMovieObject = responseObj[0];
@@ -293,7 +386,9 @@ function renderDetailsPage(responseObj){
 	$(".slider").hide();
 	$("#film-details-page").show();
 	$("#img_poster").attr('src','');
-	$("#movieName").html(selectedMovieObject.title);
+	$("#movieName span.moviname").html(selectedMovieObject.title);
+	$("#movieName span.stars").html(selectedMovieObject.rated)
+	$("#movieName span.stars").stars();
 	$(".filmcasting-detail #cast").html(selectedMovieObject.cast_crew);
 	$(".filmcasting-language .context-value").html(selectedMovieObject.language);
 	$(".filmcasting-duration .context-value").html(selectedMovieObject.duration);

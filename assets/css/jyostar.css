@@ -219,10 +219,10 @@ font-size:12px;
 	margin: 5px 0 5px 0;
 }
 .filmdetails-container  h2 span{
-    font-size: 14px;
+    /*font-size: 14px;
     color: #FFF;
     font-weight: normal;
-    line-height: 16px;
+    line-height: 16px;*/
 }
 .filmdetails-container p{
 	color: #000;
@@ -339,4 +339,110 @@ iframe{
 }
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{
 	background: #fff;
+}
+.header{
+	width: 100%;
+	height: 100px;
+}
+.header .menu{
+	width: 24%;
+	float: left;
+	height: 100px;
+}
+.header .logo{
+	width: 75%;
+	float: left;
+	height: 100px;
+}
+.logo img{
+	text-align: center;
+	width: 200px;
+	height: 95px;
+}
+
+
+span.stars, span.stars span {
+    display: block;
+    background: url(../images/stars.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+
+.moviname{
+    max-width: 75%;
+    float: left;
+}
+.stars{
+	width: 17%;
+	float: left;
+	margin: 8px 0 0 15px;	
+}
+.ui-panel-inner{
+	padding: 0px;
+}
+.menu-panel .ui-btn-active{
+	background-color: #22aadd !important;
+}
+.menu-panel,.menu-panel ul li,.menu-panel ul li a {
+	background-color: #010d41 !important;
+	border: 0px;
+}
+.menu-panel ul li a:hover {
+	background-color: #22aadd !important;
+} 
+.menu-panel h2{
+	margin: 0px !important;		
+}
+.menu-panel .ui-listview > .ui-li-static{
+	padding: 0px;
+} 
+.menu-panel .sub-menu li{
+	padding:0px 0px 0px 15px;
+}
+.sub-menu li a{
+	font-size: 14px !important;
+}
+.menu-icon{
+	background-color: #22aadd !important;
+	margin-top: 5px !important;
+	border-radius: 0px !important;
+	width: 40px;
+	height: 40px;	
+}
+.ui-icon-bars:after{
+	width : 30px;
+	height: 30px;
+	border-radius: 0px !important;
+	top: 40%;
+	left: 40%;
+	background-color: #51a7e8 !important;
+}
+.about_page, .founder-page, .contact-page{
+	margin: 10px;
+	font-family: "Raleway","Roboto Condensed",Arial,serif;
+	font-size: 16.8px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.about_page h4, .founder-page h4{
+	font-size: 22.8px;
+	font-weight: 400;
+	color: #C75D02;
+	margin: 10px 0 0 0;
+}
+.founder-page h5{
+	font-size: 18.8px;
+	font-weight: 400;
+	color: #C75D02;
+	margin: 10px 0 0 0;
+}
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }

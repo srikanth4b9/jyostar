@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>::JyoStar::</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+      <meta charset="utf-8"></meta>
+      <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+      <link rel="stylesheet" href="css/jyostar.css" />
+      <link rel="stylesheet" href="css/slick.css" />
+	        <link rel="stylesheet" href="css/listview-grid.css" />
+      <link rel="stylesheet" href="css/font-awesome.css" />
+      <script src="js/jquery.js"></script>
+	  <script>
+	  	$(document).bind('mobileinit',function(){
+	      $.mobile.changePage.defaults.changeHash = false;
+	      $.mobile.hashListeningEnabled = false;
+	      $.mobile.pushStateEnabled = false;
+	  	});
+	  </script>
+      <script src="js/jquery.mobile-1.4.5.min.js"></script>
+	  <style>
+		  .paidmovie_1 a{
+		      display: block;
+			  margin: 0 auto;
+			  text-decoration: none;
+			  width: 88%;
+		      padding: 10px 16px;
+		      font-size: 18px;
+		      line-height: 1.3333333;
+		      border-radius: 6px;
+			  color: #fff !important;
+			  background-color: #5cb85c;
+			  border-color: #4cae4c;
+
+		      font-weight: 400;
+		      text-align: center;
+		      white-space: nowrap;
+		      vertical-align: middle;
+		      -ms-touch-action: manipulation;
+		      touch-action: manipulation;
+		      cursor: pointer;
+		      -webkit-user-select: none;
+		      -moz-user-select: none;
+		      -ms-user-select: none;
+		      user-select: none;
+		      background-image: none;
+		      border: 1px solid transparent;
+		  }
+		  .paidmovie_1 a:hover, .paidmovie_1 a:active{
+			  color: #fff;
+			  background-color: #449d44;
+			  border-color: #398439;
+		  }
+		  .promoContainer{
+			  color: #3c763d;
+		      background-color: #dff0d8;
+		      border-color: #d6e9c6;
+			  width: 96%;
+			  padding: 0 5px;
+			  margin: 0 auto;
+		      border: 1px solid transparent;
+		      border-radius: 4px;
+		  }
+		  .text-center {
+		      text-align: center;
+		  }
+	  </style>
+   </head>
+   <body>
+      <div data-role="page">
+         <div data-role="header">
+            <h1>
+               <img src="images/logo.png" />
+            </h1>
+			<a href="#left-panel" class="menu-icon" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" >Open left panel</a>
+
+            <!--<div data-role="navbar" data-grid="d" >
+               <ul>
+                  <li id="moviesList"><a href="#" class="ui-btn-active">Movies</a></li>
+                  <li id="tvSerials"><a href="#">TV</a></li>
+                  <li>
+					  <a href="#">Language</a>
+				  </li>
+                  <li id="about">
+					  <a href="#">About us</a>
+				  </li>
+                  <li id="logout"><a data-transition="slide" data-direction="reverse">Sign out</a></li>
+               </ul>
+            </div>-->
+		  
+            <!-- /navbar -->
+         </div>
+         <!-- /header -->
+		 <div class="menu-panel" data-role="panel" id="left-panel" data-theme="b">
+				 <ul data-role="listview" data-inset="true" data-shadow="false">
+  				   <li id="home" data-rel="close">
+  				     <a href="index.html?q=h" rel="external">Home</a>
+  				   </li>
+				   <li id="moviesList" data-rel="close">
+				     <a href="index.html?q=m" rel="external">Movies</a>
+				   </li>
+				   <li id="tvSerials" data-rel="close"><a href="index.html?q=t" rel="external">TV</a></li>
+				   <li  data-role="collapsible" data-iconpos="right" data-inset="false">
+				     <h2>Language</h2>
+				     <ul data-role="listview"  class="sub-menu" data-theme="b">
+				       <li data-rel="close"><a href="index.html?q=language-telugu" rel="external">Telugu</a></li>
+				       <li data-rel="close"><a href="index.html?q=language-tamil" rel="external">Tamil</a></li>
+				     </ul>
+				   </li>
+				   <li id="about" data-role="collapsible" data-iconpos="right" data-inset="false">
+				     <h2>About us</h2>
+				     <ul data-role="listview" class="sub-menu" data-theme="b">
+   				       <li data-rel="close" id='aboutus'><a href="about.html" rel="external">About JYOSTAR</a></li>
+   				       <li data-rel="close" id='founder'><a href="founder.html" rel="external">Founders</a></li>
+   					   <li data-rel="close" id='term'><a href="termofuse.html" rel="external">Term of Use</a></li>
+   					   <li data-rel="close" id='refund'><a href="refund.html" rel="external">Refund Process</a></li>
+   					   <li data-rel="close" id='contact'><a href="contactus.html" rel="external">Contact us</a></li>
+				     </ul>
+				   </li>
+				   <li id="logout" data-rel="close"><a href="#">Sign out</a></li>
+				 </ul>
+		     </div><!-- /panel -->
+		
+			 
+         <div role="main" class="ui-content">
+				<article class="maincontent about_page" id="mainbar">
+
+				<h1>About Jyostar</h1>
+				<p>JYO STAR Enterprises a fully integrated production house with multi functional capsules in the media industry. The founders have unified vision of creating high quality cinema with a blend of technology and human values. The production house consists of team of highly qualified professionals with wide experience and expertise in various industries Systematic approach, high level professionalism and clear execution of projects through well defined system are hall mark qualities that clearly bench marks JYOSTAR ability to sustain in this highly competitive market.</p>
+
+				<h2>Our Vision </h2>
+				<p>Creating high quality cinema beyond one’s imagination with a blend of technology and human values</p>
+
+
+				<h2>Our Mission</h2>
+				<ul>
+				<li>Create unique bench mark for each movie 
+
+				</li><li>Achieve the set standard with absolute efficiency in controlling cost by not compromising on the quality
+
+				</li><li>Produce movies that ignites social awareness, intellectual simulation, spiritual elevation, moral value, artistic ecstasy
+
+				</li><li>Propagate the immortal importance of team work and lead through action 
+
+				</li><li>Believe in creating a better society through making quality cinema
+
+				</li><li>Achieve turnkey results by proper budget, clear planning flawless execution and results evaluation
+
+				</li><li>Safeguard the interest of investors, partners, team members and one and all associated with Jyostar</li>
+				</ul>
+
+				<h1>Our Services </h1>
+
+				<h4>Film Production (India and Abroad)</h4>
+
+				<p>We select our projects with  <strong>3S</strong> concepts <strong>Social Message, Societal Impact, Successful</strong> Commercially. Our film production stages include</p>
+
+
+				<h4>Film Distribution (India and Overseas)</h4>
+
+				<p>Jyostar enterprises offers 100% safe and commercially viable film distribution service through our time tested TE model. </p>
+
+				<p>The TE model offers fool proof jury team that will watch the movies first copy and do a small market research before and after watching the first copy. The team comprises of artist , technicians, corporate professionals, public relations professionals, quality assessment professionals and JYOSTAR Core team. </p>
+
+				<p>Selected movies will be distributed across theatres all over India and Abroad. The same will also be released through our innovative JYOSTAR Online APP </p>
+
+
+
+				</article>
+					
+		</div>
+         <!-- /content -->
+      </div>
+  </div>
+      <!-- /page -->
+   </body>
+   <script>
+   		$(document).ready(function() {
+			$("#about").collapsible('expand');
+			$("#aboutus a").addClass("ui-btn-active");
+		});
+   </script>
+</html>
