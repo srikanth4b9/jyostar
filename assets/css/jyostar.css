@@ -423,6 +423,7 @@ span.stars span {
 }
 .about_page, .founder-page, .contact-page{
 	margin: 10px;
+	margin-bottom:5px;
 	font-family: "Raleway","Roboto Condensed",Arial,serif;
 	font-size: 14.8px;
 	font-weight: 400;
@@ -430,7 +431,7 @@ span.stars span {
 }
 
 .about_page h4, .founder-page h4{
-	font-size: 22.8px;
+	font-size: 18.8px;
 	font-weight: 400;
 	color: #C75D02;
 	margin: 10px 0 0 0;

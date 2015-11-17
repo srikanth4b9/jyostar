@@ -26,10 +26,10 @@
 	}
 	
 	.my-page .ui-listview li:nth-child(odd) {
-		margin: 5px 5px;
+		margin: 5px 11.5px;
 	}
 	.my-page .ui-listview li:nth-child(even) {
-		margin: 5px 5px;
+		margin: 5px 11.5px;
 	}
 	.my-page .ui-listview li > .ui-btn {
 		-webkit-box-sizing: border-box; /* include padding and border in height so we can set it to 100% */
@@ -129,4 +129,3 @@
 		-ms-transition: all 500ms ease;
 		transition: all 500ms ease;
 	}
-

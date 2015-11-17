@@ -215,7 +215,7 @@ font-size:12px;
     text-shadow: none;
     margin: 10px;
     line-height: 1.5;
-	font-size: 22px;
+	font-size: 18px;
 	margin: 5px 0 5px 0;
 }
 .filmdetails-container  h2 span{
@@ -282,7 +282,7 @@ iframe{
 }
 
 #cast p{
-	font-size: 16px;
+	font-size: 14.8px;
 }
 
 /* prev / next links */
@@ -300,7 +300,7 @@ iframe{
 }
 .film-details p.film-maindetails{
 	font-family: "Raleway","Roboto Condensed",Arial,serif;
-	font-size: 16.8px;
+	font-size: 14.8px;
 	font-weight: 400;
 	line-height: 1.5;
 	margin: 5px 0 15px 0;
@@ -423,14 +423,15 @@ span.stars span {
 }
 .about_page, .founder-page, .contact-page{
 	margin: 10px;
+	margin-bottom:5px;
 	font-family: "Raleway","Roboto Condensed",Arial,serif;
-	font-size: 16.8px;
+	font-size: 14.8px;
 	font-weight: 400;
 	line-height: 1.5;
 }
 
 .about_page h4, .founder-page h4{
-	font-size: 22.8px;
+	font-size: 18.8px;
 	font-weight: 400;
 	color: #C75D02;
 	margin: 10px 0 0 0;

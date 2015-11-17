@@ -131,9 +131,6 @@ BookIt.SignUpController.prototype.onSignupCommand = function () {
         me.$txtPasswordConfirm.addClass(invalidInputStyle);
         return;
     }
-
-
-	alert("username=" + emailAddress + "&action=signup" + "&mobile=" + phoneNumber + "&password=" + password + "&title=Mr"+"&fullname="+userName);
     $.ajax({
         type: 'POST',
         url: BookIt.Settings.jyostarUrl,
