@@ -35,7 +35,8 @@ $(document).ready(function() {
 		$(".slider").show();
 		$("#film-index-page").show();
 		$("#film-details-page").hide();
-		
+		$(document).find("iframe").attr('src','about:blank');
+
 		var uniqueMovieTypes = _.uniq(_.pluck(_.flatten(response), "type"));
 		var uniqueMovieGener = _.uniq(_.pluck(_.flatten(response), "gener"));
 		var uniqueMovieLanguages = _.uniq(_.pluck(_.flatten(response), "language"));

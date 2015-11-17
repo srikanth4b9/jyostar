@@ -10,6 +10,7 @@
 	        <link rel="stylesheet" href="css/listview-grid.css" />
       <link rel="stylesheet" href="css/font-awesome.css" />
       <script src="js/jquery.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
 	  <script>
 	  	$(document).bind('mobileinit',function(){
 	      $.mobile.changePage.defaults.changeHash = false;
@@ -17,11 +18,10 @@
 	      $.mobile.pushStateEnabled = false;
 	  	});
 		
-		document.addEventListener("deviceready", onDeviceReady, false);
-		function onDeviceReady() {
-		    document.addEventListener("backbutton", function (e) {
-		        e.preventDefault();
-		    }, false );
+document.addEventListener("backbutton", onBackKeyDown, false);
+function onBackKeyDown(e) {
+  e.preventDefault();
+}
 		
 	  </script>
       <script src="js/jquery.mobile-1.4.5.min.js"></script>

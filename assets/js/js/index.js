@@ -56,7 +56,6 @@ $(document).on("pagecontainerbeforeshow", function (event, ui) {
 
 
 $(document).delegate("#page-signup", "pagebeforecreate", function () {
-	alert("sign-up");
     app.signupController.init();
     app.signupController.$btnSubmit.off("tap").on("tap", function () {
         app.signupController.onSignupCommand();

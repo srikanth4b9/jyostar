@@ -2,7 +2,7 @@
 .my-page{
 	width: 97%;
 	height: auto;
-	position: absolute;
+	/*position: absolute;*/
 }
 .my-page .ui-listview li .ui-btn p {
 	color: white;
