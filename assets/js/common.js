@@ -74,7 +74,7 @@ $(document).ready(function() {
 		myselect[0].selectedIndex = 0;
 		myselect.selectmenu("refresh");
 		
-		$("#dropDownFilterList").show();
+		//$("#dropDownFilterList").show();
 	}
 
     $('.slider').slick({
@@ -127,7 +127,7 @@ $(document).ready(function() {
 	});
 
 	getcurrentLocatation();
-	$("#dropDownFilterList").hide();
+	//$("#dropDownFilterList").hide();
 	
 	function populateGridView(response, fromService){
 
@@ -164,15 +164,27 @@ $(document).ready(function() {
 
 	}
 	
-	function filterMovies(){
+	function filterMovies() {
 		var selectedMovieType = $("#mtype option:selected").val();
 		var selectedLanguage = $("#language option:selected").val();
 		var selectedGener = $("#gener option:selected").val();
+		var selectedSort = $("#sort option:selected").val();
 		
 		var filteredMovietype = (selectedMovieType == "All" ? moviesArray : _.filter(moviesArray, function(item){ return item.type == selectedMovieType;}));
 		var filteredMovieTypeAndLanguage = (selectedLanguage == "All" ? filteredMovietype : _.filter(filteredMovietype, function(item){ return item.language == selectedLanguage;}));
 		var filteredMovieWithAll = (selectedGener == "All" ? filteredMovieTypeAndLanguage : _.filter(filteredMovieTypeAndLanguage, function(item){ return item.gener == selectedGener;}));
-		return filteredMovieWithAll;
+		
+		var filteredMovieSort ;
+		if (selectedSort == "original") {
+			 filteredMovieSort = filteredMovieWithAll;
+		}else if (selectedSort == "title") {
+			filteredMovieSort = _.sortBy(filteredMovieWithAll,function(item){  return item.title;});		}else if (selectedSort == "duration") {
+			 filteredMovieSort = filteredMovieWithAll;
+		}else if  (selectedSort == "random") {
+			 filteredMovieSort = _.shuffle(filteredMovieWithAll);
+		}
+		
+		return filteredMovieSort;
 	}
 	
 	$(document).on("change", "#mtype", function(){
@@ -187,6 +199,23 @@ $(document).ready(function() {
 	
 	$(document).on("change", "#gener", function(){
 		var moviesArr = filterMovies();
+		populateGridView(moviesArr);
+	});
+	
+	$(document).on("change","#sort",function() {
+		var moviesArr = filterMovies();
+		populateGridView(moviesArr);
+	});
+	
+	$(document).on("click", "#asc", function(){
+		var moviesArr = filterMovies();
+		moviesArr = _.sortBy(moviesArr,function(item){  return item.title;});
+		populateGridView(moviesArr);
+	});
+		
+	$(document).on("click", "#des", function() {
+		var moviesArr = filterMovies();
+		moviesArr = _.sortBy(moviesArr,function(item){  return item.title;}).reverse();
 		populateGridView(moviesArr);
 	});
 	

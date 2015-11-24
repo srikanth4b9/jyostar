@@ -90,8 +90,51 @@ font-size:12px;
  }
  
  
-
+ .filter_collapsible h1  a.ui-btn{
+ 	background-color:#059;
+	color:white;
+ }
  
+ .filter_collapsible h1  a.ui-btn:hover {
+ 	background-color:#059;
+	color:white;
+	border-color:#059;
+ }
+ 
+  .filter_collapsible a.ui-btn{
+  	background-color:#337ab7;
+	color:white;
+  }
+ 
+  .filter_collapsible a.ui-btn:hover {
+    	background-color:#337ab7;
+  		color:white;
+  }
+
+  .styled-select select {
+     background: transparent;
+     width: 25px;
+     padding: 5px;
+     font-size: 16px;
+     line-height: 1;
+     border: 0;
+     border-radius: 0;
+     height: 34px;
+     -webkit-appearance: none;
+	 margin-top : -17px;
+  }
+  .ui-icon-carat-d::after {
+     width: 25px;
+     height: 34px;
+     overflow: visible;
+     background: url('../images/caret-black-small-down-icon.png') no-repeat right;
+     border: 0px solid #ccc;
+	 margin-top : -17px;
+  }
+  .styled-select select::-ms-expand {
+      display: none; /*patch iexplorer*/
+  }
+
 /* 
  input[type="text"]{
 	  padding: 20px 10px; 
