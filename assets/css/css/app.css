@@ -95,11 +95,24 @@ input:-moz-placeholder {
 	text-decoration: none;
 	margin-top: 60px;
 }*/
-#submitButton {
+.submitContainer #btn-submit {
 	background-color:#5cb85c;
 	border-color:#2e6da4;
 	color:white;
 }
+.submitContainer #btn-signup {
+	background-color:#5bc0de;
+	border-color:#46b8da;
+	color:white;
+}
+
+.submitContainer #btn-forget{
+	background-color:#d9534f;
+	border-color:#2e6da4;
+	color:white;
+}
+
+
 .backLoginButton{
 	width: 30%;
 	float: left;
