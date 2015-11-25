@@ -95,28 +95,28 @@ input:-moz-placeholder {
 	text-decoration: none;
 	margin-top: 60px;
 }*/
-.submitContainer #btn-submit {
+ #btn-submit ,#allready_have_account{
 	background-color:#5cb85c;
 	border-color:#2e6da4;
 	color:white;
 }
-.submitContainer #btn-signup {
+ #btn-signup,#new_signup {
 	background-color:#5bc0de;
 	border-color:#46b8da;
 	color:white;
 }
 
-.submitContainer #btn-forget{
+ #btn-forget ,#request_password { 
 	background-color:#d9534f;
 	border-color:#2e6da4;
 	color:white;
 }
 
 
-.backLoginButton{
+/*.backLoginButton{
 	width: 30%;
 	float: left;
-}
+}*/
 /*.submitContainer{
 	height: 80px;
 	border-bottom: 1px solid #CCC
