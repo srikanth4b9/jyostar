@@ -29,7 +29,7 @@ public class MainActivity extends CordovaActivity
     {
         super.onCreate(savedInstanceState);
         // Set by <content src="index.html" /> in config.xml
-        //loadUrl(launchUrl);
-        loadUrl("http://192.168.1.4:8888/");
+        loadUrl(launchUrl);
+        //loadUrl("http://192.168.1.4:8888/login.html");
     }
 }

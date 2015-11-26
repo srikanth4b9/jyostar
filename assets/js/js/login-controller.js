@@ -10,6 +10,7 @@ BookIt.LoginController = function () {
     this.$txtEmailAddress = null;
     this.$txtPassword = null;
     this.$txtPasswordConfirm = null;
+	this.$fullName = null;
 };
 BookIt.LoginController.prototype.getUserDetails = function(){
 
@@ -35,7 +36,7 @@ BookIt.LoginController.prototype.init = function (page) {
     this.$txtEmailAddress = $("#txt-email-address", this.$signUpPage);
     this.$txtPassword = $("#txt-password", this.$signUpPage);
     this.$txtPasswordConfirm = $("#txt-password-confirm", this.$signUpPage);
-	
+	this.$fullName = $("#txt-full-name", this.$signUpPage);
 };
 
 BookIt.LoginController.prototype.resetLoginForm = function () {
@@ -50,6 +51,7 @@ BookIt.LoginController.prototype.resetLoginForm = function () {
 	this.$txtEmailAddress.removeClass(invalidInputStyle);
 	this.$txtPassword.removeClass(invalidInputStyle);
 	this.$txtPasswordConfirm.removeClass(invalidInputStyle);
+	this.$fullName.removeClass(invalidInputStyle);
 
 	this.$txtUserName.val("");
 	this.$txtPhoneNumber.val("");
@@ -164,7 +166,7 @@ BookIt.LoginController.prototype.onLoginCommand = function () {
 					isUserLoggedIn: true
 				}
 				sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
-				location.href = "index.html";
+				$.mobile.navigate("index.html");
 			}else {
 	            me.$ctnErr.html("<p>"+ "Oops!  " +  response.msg +"</p>");
 	            me.$ctnErr.addClass("bi-ctn-err").slideDown();
@@ -234,7 +236,7 @@ BookIt.LoginController.prototype.onForgetCommand = function () {
 BookIt.LoginController.prototype.onSignupCommand = function () {
 	
     var me = this,
-    userName = me.$txtUserName.val().trim(),
+    userName = me.$fullName.val().trim(),
     phoneNumber = me.$txtPhoneNumber.val().trim(),
     emailAddress = me.$txtEmailAddress.val().trim(),
     password = me.$txtPassword.val().trim(),
@@ -254,6 +256,7 @@ BookIt.LoginController.prototype.onSignupCommand = function () {
     // Flag each invalid field.
     if (userName.length === 0) {
         me.$txtUserName.addClass(invalidInputStyle);
+		me.$fullName.addClass(invalidInputStyle);
         invalidInput = true;
     }
     if (phoneNumber.length === 0) {

@@ -64,7 +64,7 @@ $(document).on("pagebeforeshow","#forget-password-page",function() {
 });
 
 $(document).on("pagebeforeshow","#page-signup",function() {
-	alert('page-signup');
+	
     app.loginController.init("#page-signup");
 	app.loginController.resetLoginForm();
     app.loginController.$btnSubmit.off("tap").on("tap", function () {

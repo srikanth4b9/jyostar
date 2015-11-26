@@ -12,8 +12,7 @@
 	        <link rel="stylesheet" href="css/listview-grid.css" />
       <link rel="stylesheet" href="css/font-awesome.css" />
       <script src="js/jquery.js"></script>
-	  <script src="js/sample.js"></script>
-	 <!-- <script type="text/javascript" charset="utf-8" src="cordova.js"></script> -->
+	  <!--  <script type="text/javascript" charset="utf-8" src="cordova.js"></script> -->
 	  <script>
 	  	$(document).bind('mobileinit',function(){
 	  		      $.mobile.changePage.defaults.changeHash = false;
@@ -103,12 +102,12 @@
 		 <div class="menu-panel" data-role="panel" id="left-panel" data-theme="b">
 				 <ul data-role="listview" data-inset="true" data-shadow="false">
   				   <li id="home" data-rel="close">
-  				     <a href="#" >Home</a>
+  				     <a href="#">Home</a>
   				   </li>
 				   <li id="moviesList" data-rel="close">
-				     <a href="#" >Movies</a>
+				     <a href="#">Movies</a>
 				   </li>
-				   <li id="tvSerials" data-rel="close"><a href="#" >TV</a></li>
+				   <li id="tvSerials" data-rel="close"><a href="#">TV</a></li>
 				   <li data-role="collapsible" data-iconpos="right" data-inset="false">
 				     <h2>Language</h2>
 				     <ul data-role="listview"  class="sub-menu" data-theme="b">
@@ -119,11 +118,11 @@
 				   <li id="about" data-role="collapsible" data-iconpos="right" data-inset="false">
 				     <h2>About us</h2>
 				     <ul data-role="listview" class="sub-menu" data-theme="b">
-				       <li data-rel="close"><a href="about.html" >About JYOSTAR</a></li>
-				       <li data-rel="close"><a href="founder.html" >Founders</a></li>
-					   <li data-rel="close"><a href="termofuse.html" >Term of Use</a></li>
-					   <li data-rel="close"><a href="refund.html" >Refund Process</a></li>
-					   <li data-rel="close"><a href="contactus.html" >Contact us</a></li>
+				       <li data-rel="close"><a href="about.html">About JYOSTAR</a></li>
+				       <li data-rel="close"><a href="founder.html">Founders</a></li>
+					   <li data-rel="close"><a href="termofuse.html">Term of Use</a></li>
+					   <li data-rel="close"><a href="refund.html">Refund Process</a></li>
+					   <li data-rel="close"><a href="contactus.html">Contact us</a></li>
 				     </ul>
 				   </li>
 				   <li id="logout" data-rel="close"><a href="#">Sign out</a></li>
@@ -169,7 +168,7 @@
 		         </div>
 
 			<div id="film-index-page">
-				<div class="ui-grid-b" id="dropDownFilterList">
+				<!-- <div class="ui-grid-b" id="dropDownFilterList">
 
 			        <div class="ui-block-a">
 						<label class="optionLabel typeLabel">Movie Type</label>
@@ -183,7 +182,24 @@
 						<label class="optionLabel">Gener</label>
 						<select id="gener" name="gener" data-mini="true"></select>
 					</div>
-			    </div> 
+			    </div>  -->
+					
+				    <div data-role="collapsible" data-content-theme="c" class = "filter_collapsible">
+				               <h1 class = "filter_header">  Movies  TV Shows 
+				               </h1>
+					 <select id="mtype" name="mtype" data-mini="true"></select>
+					<select id="language" name="language" data-mini="true"></select>
+					<select id="gener" name="gener" data-mini="true"></select>
+					<img src="images/arrow.png">
+					 <select id="sort" name="sort" data-mini="true">
+						 <option value='original'>Original Order</option>	
+						 <option value='title'>Title</option>						
+   						 <option value='duration'>Duration</option>						
+	      				<option value='random'>Random</option>						
+					 </select>
+						<a href="#" data-role="button" data-inline="true"  data-icon="arrow-u" class = "asc" id = "asc" >ASC</a>
+						<a href="#" data-role="button" data-inline="true"  data-icon="arrow-d" class = "des" id = "des">DES</a>
+				      </div>
             	
 				<div class="my-page">
 					<ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true" id="gridView">

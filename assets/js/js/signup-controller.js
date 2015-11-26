@@ -136,9 +136,7 @@ BookIt.SignUpController.prototype.onSignupCommand = function () {
         url: BookIt.Settings.jyostarUrl,
         data: "username=" + emailAddress + "&action=signup" + "&mobile=" + phoneNumber + "&password=" + password + "&title=Mr"+"&fullname="+userName,
         success: function (resp) {
-			alert(resp.msg);
             $.mobile.navigate("index.html");
-			
             if (resp.success) {
 				alert(resp.status);
                 return;

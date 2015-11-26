@@ -1,0 +1,136 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+    
+    <link href="css/css/themes/2/bookit.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+	<link rel="stylesheet" type="text/css" href="css/css/app.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+	<title>::JyoStar Login::</title>
+	<style>
+		h3{
+			margin: 5px 0px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	
+		<!-- Login Page -->
+      <div data-role="page" class="login-page" id="login-page">
+         <div data-role="header">
+            <h1><img src="images/logo.png"/></h1>
+		 </div><!-- /navbar --> 
+       <div role="main" class="ui-content">
+           <h3>Login in with JyoStar</h3>
+			<div id="ctn-err" class="bi-invisible"></div>
+			<p class="loginLabel">Please enter your username and password below to access your JYOSTAR account.</p>
+			<p class="loginLabel"> You will be the first to watch new films on release date. </p>
+           <label for="txt-email"></label>
+           <input type="text" placeholder="Email Address" maxlength="254" autocomplete="off" name="txt-email-address" id="txt-email-address" value=""/>
+           <label for="txt-password"></label>
+           <input type="password" placeholder="Password" name="txt-password" id="txt-password" value=""/>
+		   <div class="submitContainer">
+           <a href="#dlg-invalid-credentials" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all submitButton">Submit</a>
+		   <p class = "forgotLink"><a href="#forget-password-page" data-transition="slide">Forgot Password?</a></p>
+	   </div>
+
+		   <div class="registerContainer">
+		        Don't have an account? <a href="#page-signup" class="ui_secondary_link">Sign up</a>
+		   </div>
+		   	
+       </div><!-- /content -->
+	</div>
+	
+	<!-- Forget Password Page -->
+	
+    <div data-role="page" class="login-page" id="forget-password-page">
+         <div data-role="header">
+            <h1><img src="images/logo.png"/></h1>
+            <!-- /navbar -->
+         </div>
+       <div role="main" class="ui-content">
+           <h3>Reset your Password</h3>
+		   <p class="loginLabel">Please enter the e-mail address what you used while registering account with JYOSTAR.</p> 
+		  	<div id="ctn-err" class="bi-invisible"></div>
+		    <label for="txt-email"></label>
+           <input type="text" name="txt-email-address" id="txt-email-address" placeholder="Email Address" value="">
+           <a href="#dlg-invalid-credentials" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all submitButton">Submit</a>
+		   
+	       <a href="#login-page" data-iconpos="notext" data-transition="slide" data-direction="reverse" class="ui-btn ui-btn-a ui-corner-all backLoginButton"> Back</a>
+		   
+       </div><!-- /content -->
+	</div>
+	
+	<!-- Sign-up Page -->
+    <div data-role="page" id="page-signup">
+	         <div data-role="header">
+	            <h1><img src="images/logo.png" /></h1>
+			 </div>
+			<div role="main" class="ui-content">
+            	<h3>New User - SIGN UP</h3>
+            	<div id="ctn-err" class="bi-invisible"></div>
+				<fieldset class="ui-grid-a">
+				    <div class="ui-block-a shortDiv" style="margin-left: -5px;">
+							<select class="form-control" id="title" name="title">
+								<option value="">Select </option>
+								  <option value="Mr.">Mr.</option>
+								  <option value="Mrs.">Mrs.</option>
+								  <option value="Dr.">Dr.</option>
+								  <option value="Ms.">Ms.</option>  
+								  <option value="Miss.">Miss.</option> 
+							</select>
+				    </div>
+				    <div class="ui-block-b longDiv">
+						<input type="text" name="txt-full-name" id="txt-full-name" placeholder="Full Name" value=""/>
+				    </div>
+				</fieldset>
+           	 	<label for="txt-user-name"></label>
+            	<input type="text" name="txt-user-name" id="txt-user-name" placeholder="User Name" value=""/>
+            	<label for="txt-email-address"></label>
+            	<input type="text" name="txt-email-address" id="txt-email-address" placeholder="Email Address" value=""/>
+            	<label for="txt-password"></label>
+            	<input type="password" name="txt-password" id="txt-password" placeholder="Password" value=""/>
+           	 	<label for="txt-password-confirm"></label>
+            	<input type="password" name="txt-password-confirm" id="txt-password-confirm" placeholder="Confirm Password" value=""/>
+            	<label for="txt-phone-number"></label>
+           	 	<input type="text" name="txt-phone-number" id="txt-phone-number" placeholder="Mobile Number" value=""/>
+            <!--<a href="#dlg-sign-up-sent" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</a>-->
+				<div class="col-md-12">
+					<label class=" control-label">Terms of use</label>
+			         <div style="border: 1px solid #e5e5e5; height: 80px; overflow: auto; padding: 2px 15px; font-size: 13px; text-align: justify;">
+			                <p>Lorem ipsum dolor sit amet, veniam numquam has te. No suas nonumes recusabo mea, est ut graeci definitiones. His ne melius vituperata scriptorem, cum paulo copiosae conclusionemque at. Facer inermis ius in, ad brute nominati referrentur vis. Dicat erant sit ex. Phaedrum imperdiet scribentur vix no, ad latine similique forensibus vel.</p>
+			                <p>Dolore populo vivendum vis eu, mei quaestio liberavisse ex. Electram necessitatibus ut vel, quo at probatus oportere, molestie conclusionemque pri cu. Brute augue tincidunt vim id, ne munere fierent rationibus mei. Ut pro volutpat praesent qualisque, an iisque scripta intellegebat eam.</p>
+               
+			          </div>
+			   	</div>
+					
+	            	<a id="btn-submit" class="ui-btn ui-btn-b ui-corner-all submitButton">Sign Up</a>
+					 <a href="#login-page" data-iconpos="notext" data-transition="slide" data-direction="reverse" class="ui-btn ui-btn-a ui-corner-all backLoginButton">Back</a>
+					<div data-role="popup" id="dlg-sign-up-sent" data-dismissible="false" style="max-width:400px;">
+	               	 	<div data-role="header">
+	                   	 	<h1>Almost done...</h1>
+	                	</div>
+	                	<div role="main" class="ui-content">
+	                 	   <h3>Confirm Your Email Address</h3>
+	                  	  <p>We sent you an email with instructions on how to confirm your email address. Please check your inbox and follow the instructions in the 							 email.</p>
+	                    	<div class="mc-text-center"><a href="sign-in.html" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</a></div>
+	               	 	</div>
+            </div>
+    </div>
+	<div class="ui-loader-background"> </div>
+    <script src="lib/jquery/2.1.1/jquery-2.1.1.min.js"></script>
+    <script src="js/js/api-messages.js"></script>
+    <script src="js/js/settings.js"></script>
+    <script src="js/js/login-controller.js"></script>
+    <script type="text/javascript" src="js/js/login.js"></script>
+    <script src="lib/jqm/1.4.5/jquery.mobile-1.4.5.min.js"></script
+</body>
+</html>
+
+
