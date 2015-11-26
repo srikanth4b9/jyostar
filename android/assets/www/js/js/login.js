@@ -60,7 +60,6 @@ $(document).on("pagebeforeshow","#forget-password-page",function() {
     app.loginController.$btnSubmit.off("tap").on("tap", function () {
         app.loginController.onForgetCommand();
    });
-   
 });
 
 $(document).on("pagebeforeshow","#page-signup",function() {

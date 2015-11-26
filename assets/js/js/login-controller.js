@@ -26,9 +26,14 @@ BookIt.LoginController.prototype.isUserLoggedIn = function(){
 }
 
 BookIt.LoginController.prototype.init = function (page) {
-	
+
     this.$signUpPage = $(page);
-    this.$btnSubmit = $("#btn-submit", this.$signUpPage);
+	if (page == "#forget-password-page") {
+	    this.$btnSubmit = $("#request_password", this.$signUpPage);
+	}else {
+	    this.$btnSubmit = $("#btn-submit", this.$signUpPage);
+	}
+
     this.$ctnErr = $("#ctn-err", this.$signUpPage);
     this.$txtUserName = $("#txt-user-name", this.$signUpPage);
     this.$txtPhoneNumber = $("#txt-phone-number", this.$signUpPage);
