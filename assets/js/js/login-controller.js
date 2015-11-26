@@ -27,7 +27,6 @@ BookIt.LoginController.prototype.isUserLoggedIn = function(){
 
 BookIt.LoginController.prototype.init = function (page) {
 	
-
     this.$signUpPage = $(page);
     this.$btnSubmit = $("#btn-submit", this.$signUpPage);
     this.$ctnErr = $("#ctn-err", this.$signUpPage);
@@ -216,7 +215,6 @@ BookIt.LoginController.prototype.onForgetCommand = function () {
 					function (response,error) {
 						// hide activity indicato
 						me.hideIndicator();
-		
 						if (error) {
 				            console.log(error.message);
 				            // TODO: Use a friendlier error message below.
@@ -224,6 +222,7 @@ BookIt.LoginController.prototype.onForgetCommand = function () {
 				            me.$ctnErr.addClass("bi-ctn-err").slideDown();
 						}else {
 							if (response.status == 1) {
+								alert("An Email has been sent to your e-mail address");
 					            $.mobile.navigate("#login-page");
 							}else {
 					            me.$ctnErr.html("<p>"+ "invalid E-Mail" +"</p>");
