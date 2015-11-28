@@ -91,8 +91,8 @@ $(document).ready(function() {
 	$(".slider").append('<div class="cycle-prev"></div><div class="cycle-next"></div>');
 	
 	$(document).on("click", "#home", function(){
+		location.reload();
 		currentPage = '';
-		getListFromServer(country);
 	});
 	
 	$(document).on("click", "#moviesList", function(){
