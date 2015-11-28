@@ -170,7 +170,7 @@ BookIt.LoginController.prototype.onLoginCommand = function () {
 					isUserLoggedIn: true
 				}
 				sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
-				$.mobile.navigate("index.html");
+				location.href = "index.html";
 			}else {
 	            me.$ctnErr.html("<p>"+ "Oops!  " +  response.msg +"</p>");
 	            me.$ctnErr.addClass("bi-ctn-err").slideDown();
@@ -323,7 +323,7 @@ BookIt.LoginController.prototype.onSignupCommand = function () {
 				            me.$ctnErr.addClass("bi-ctn-err").slideDown();
 						}else {
 							if (response.status == 1) {
-					            $.mobile.navigate("index.html");
+								location.href = "index.html";
 							}else {
 					            me.$ctnErr.html("<p>Oops! " +response.msg+" </p>");
 					            me.$ctnErr.addClass("bi-ctn-err").slideDown();

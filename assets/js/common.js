@@ -117,8 +117,8 @@ $(document).ready(function() {
 	});
 	
 	$(document).on("click", "#logout", function(){
+        location.href = "login.html";
 		sessionStorage.clear();
-		location.href = "login.html";
 	});
 	
 	$(document).on("click", ".menu-panel li a", function(){
