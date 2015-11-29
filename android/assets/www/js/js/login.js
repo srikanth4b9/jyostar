@@ -31,6 +31,7 @@ app.initialize();
 
 $(document).on("mobileinit", function (event, ui) {
     $.mobile.defaultPageTransition = "slide";
+    $('body').append("<div class='ui-loader-background'> </div>");
 });
 
 app.loginController = new BookIt.LoginController();
@@ -45,8 +46,15 @@ $(document).on("pagebeforeshow","#login-page",function() {
 	if(userLoggedIn){
 		$("#txt-email-address").val(userData.userName);
 		$("#txt-password").val(userData.password);
-		
-		app.loginController.onLoginCommand();
+		 var msgText = "Logging In.... ";
+         $.mobile.loading( 'show', {
+        	    text: msgText,
+        	    textVisible: true,
+        	    theme: "z",
+        	    textonly: false,
+        	    html: ""
+         });
+         location.replace("index.html");
 		return;
 	}	
     app.loginController.$btnSubmit.off("tap").on("tap", function () {

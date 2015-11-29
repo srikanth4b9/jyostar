@@ -14,6 +14,8 @@ $(document).ready(function() {
 	    });
 	}
 	
+	$('body').append("<div class='ui-loader-background'> </div>");
+	
 	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1);
 	var hash = hashes.split('=');
 	if(hash[1] !== undefined){
@@ -91,8 +93,8 @@ $(document).ready(function() {
 	$(".slider").append('<div class="cycle-prev"></div><div class="cycle-next"></div>');
 	
 	$(document).on("click", "#home", function(){
+		location.reload();
 		currentPage = '';
-		getListFromServer(country);
 	});
 	
 	$(document).on("click", "#moviesList", function(){
@@ -117,8 +119,8 @@ $(document).ready(function() {
 	});
 	
 	$(document).on("click", "#logout", function(){
-		sessionStorage.clear();
-		location.href = "login.html";
+        location.href = "login.html";
+		localStorage.clear();
 	});
 	
 	$(document).on("click", ".menu-panel li a", function(){

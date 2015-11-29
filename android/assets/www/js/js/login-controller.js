@@ -14,7 +14,7 @@ BookIt.LoginController = function () {
 };
 BookIt.LoginController.prototype.getUserDetails = function(){
 
-	var currentUserDetails = sessionStorage.getItem("currentUser");
+	var currentUserDetails = localStorage.getItem("currentUser");
 	return JSON.parse(currentUserDetails);
 }
 
@@ -26,9 +26,14 @@ BookIt.LoginController.prototype.isUserLoggedIn = function(){
 }
 
 BookIt.LoginController.prototype.init = function (page) {
-	
+
     this.$signUpPage = $(page);
-    this.$btnSubmit = $("#btn-submit", this.$signUpPage);
+	if (page == "#forget-password-page") {
+	    this.$btnSubmit = $("#request_password", this.$signUpPage);
+	}else {
+	    this.$btnSubmit = $("#btn-submit", this.$signUpPage);
+	}
+
     this.$ctnErr = $("#ctn-err", this.$signUpPage);
     this.$txtUserName = $("#txt-user-name", this.$signUpPage);
     this.$txtPhoneNumber = $("#txt-phone-number", this.$signUpPage);
@@ -75,13 +80,13 @@ BookIt.LoginController.prototype.emailAddressIsValid = function (email) {
 
 BookIt.LoginController.prototype.showIndicator = function (text) {
     var $this = $( this ),
-    msgText = "Loading .... ";
-  $.mobile.loading( 'show', {
-    text: msgText,
-    textVisible: true,
-    theme: "z",
-    textonly: false,
-    html: ""
+    msgText = text || "Loading.... ";
+    $.mobile.loading( 'show', {
+        text: msgText,
+        textVisible: true,
+        theme: "z",
+        textonly: false,
+        html: ""
     });
 }
 
@@ -147,7 +152,7 @@ BookIt.LoginController.prototype.onLoginCommand = function () {
     }
 	
 	// show Activity indicator 
-	me.showIndicator("Loading..");
+	me.showIndicator("Logging In...");
 	me.makeAJAXCall("POST",BookIt.Settings.jyostarUrl,"username=" + emailAddress + "&action=login" +"&password=" + password,function(response,error) {
 		// hide activity indicator
 		me.hideIndicator();
@@ -164,8 +169,8 @@ BookIt.LoginController.prototype.onLoginCommand = function () {
 					password: password,
 					isUserLoggedIn: true
 				}
-				sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
-				$.mobile.navigate("index.html");
+				localStorage.setItem("currentUser", JSON.stringify(currentUser));
+				window.location.replace("index.html");
 			}else {
 	            me.$ctnErr.html("<p>"+ "Oops!  " +  response.msg +"</p>");
 	            me.$ctnErr.addClass("bi-ctn-err").slideDown();
@@ -209,7 +214,7 @@ BookIt.LoginController.prototype.onForgetCommand = function () {
     }
 	
 	// show Activity indicator 
-	me.showIndicator("Loading ..");
+	me.showIndicator("Loading...");
 
 	me.makeAJAXCall("POST",BookIt.Settings.jyostarUrl,"username=" + emailAddress + "&action=forgotpassword",
 					function (response,error) {
@@ -306,7 +311,7 @@ BookIt.LoginController.prototype.onSignupCommand = function () {
         return;
     }
 	// show Activity indicator 
-	me.showIndicator("Loading ..");
+	me.showIndicator("Registering..");
 	me.makeAJAXCall("POST",BookIt.Settings.jyostarUrl,
 					"username=" + emailAddress + "&action=signup" + "&mobile=" + phoneNumber + "&password=" + password + "&title=Mr"+"&fullname="+userName,
 					function (response,error) {
@@ -318,7 +323,7 @@ BookIt.LoginController.prototype.onSignupCommand = function () {
 				            me.$ctnErr.addClass("bi-ctn-err").slideDown();
 						}else {
 							if (response.status == 1) {
-					            $.mobile.navigate("index.html");
+								window.location.replace("index.html");
 							}else {
 					            me.$ctnErr.html("<p>Oops! " +response.msg+" </p>");
 					            me.$ctnErr.addClass("bi-ctn-err").slideDown();

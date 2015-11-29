@@ -13,6 +13,7 @@ $(document).ready(function() {
 	        $(this).html($span);
 	    });
 	}
+	  $('body').append("<div class='ui-loader-background'> </div>");
 	
 	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1);
 	var hash = hashes.split('=');
@@ -228,7 +229,7 @@ $(document).ready(function() {
 				dataType: "json",
 				crossDomain: true,
 				success: function(response) {
-					$.mobile.loading( 'hide');
+					//$.mobile.loading( 'hide');
 					successCallBack.call(successCallBack, response.info, "FROM_SERVICE");
 				},
 				error: function(e) {
